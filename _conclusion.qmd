@@ -1,31 +1,3 @@
-## Discussion {.smaller}
-
-:::: {.columns}
-
-::: {.column width="45%"}
-### Implications
-
-- What this means
-- Why it matters
-- Broader context
-
-:::
-
-::: {.column width="10%"}
-:::
-
-::: {.column width="45%"}
-### Limitations
-
-- Known limitations
-- Future improvements
-- Open questions
-
-:::
-
-::::
-
-
 ## Conclusions {.smaller}
 
 ### Key Takeaways
