@@ -1,0 +1,37 @@
+## Introduction {.smaller}
+
+:::: {.columns}
+
+::: {.column width="45%"}
+### Background
+
+- Context for your work
+- Problem statement
+- Motivation
+
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+### Objectives
+
+- Primary goal
+- Secondary goals
+- Expected outcomes
+
+:::
+
+::::
+
+
+## Overview {.smaller}
+
+Key aspects of the presentation:
+
+1. **Topic Area 1**: Brief description
+2. **Topic Area 2**: Brief description
+3. **Topic Area 3**: Brief description
+
+![](./images/placeholder.png){fig-align="center"}
