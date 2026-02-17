@@ -104,38 +104,6 @@ include-in-header:
 ::::
 
 
-## Questions? {.smaller}
-
-:::: {.columns}
-
-::: {.column width="40%"}
-
-**Contact:**
-
-- {{< fa envelope >}} ma595@cam.ac.uk
-- {{< fa link >}} your-website.com
-- {{< fa brands github >}} [ma595
-
-:::
-
-::: {.column width="20%"}
-:::
-
-::: {.column width="40%"}
-
-**Links & Resources:**
-
-- Repository: [github.com/m2lines/spinup-evaluation](https://github.com/m2lines/spinup-evaluation)
-- Documentation: [link](https://...)
-
-:::
-
-::::
-
-## References {.smaller}
-
-
-
 ## Thanks for Listening {.smaller}
 
 :::: {.columns}
@@ -173,3 +141,7 @@ The ICCS received support from ![]( ./images/logos/schmidt_science.png ){height=
 <!-- ![](./images/logos/FTorch.svg){style="width: 12%;" .absolute bottom=28% right=2%} -->
 
 ![](https://iccs.cam.ac.uk/files/logo2_2.png){style="width: 12%;" .absolute bottom=19% right=2%}
+
+::::
+
+## References {.smaller}
