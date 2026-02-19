@@ -20,6 +20,7 @@ revealjs-plugins:
 author:
   - name: "`Matt Archer`"
     orcid: 0009-0002-7043-6769
+  - name: Isaac Akanho
   - name: Surbhi Goel
   - name: Simon Sadler
   - name: "Julie Deshayes"
@@ -44,12 +45,13 @@ include-in-header:
       }
       .quarto-title-author:nth-child(1) .quarto-title-author-name::after,
       .quarto-title-author:nth-child(2) .quarto-title-author-name::after,
-      .quarto-title-author:nth-child(3) .quarto-title-author-name::after {
+      .quarto-title-author:nth-child(3) .quarto-title-author-name::after,
+      .quarto-title-author:nth-child(4) .quarto-title-author-name::after {
         content: "¹";
         font-size: 0.7em;
         vertical-align: super;
       }
-      .quarto-title-author:nth-child(4) .quarto-title-author-name::after {
+      .quarto-title-author:nth-child(5) .quarto-title-author-name::after {
         content: "²";
         font-size: 0.7em;
         vertical-align: super;
