@@ -38,7 +38,7 @@ jobs:
           quarto add --no-prompt quarto-ext/fontawesome
           quarto add --no-prompt jmbuhr/quarto-qrcode
 
-          quarto render pytorch-FTorch.qmd
+          quarto render agu-presentation.qmd
 
       - name: Test pages build
         if: github.ref != 'refs/heads/main'
