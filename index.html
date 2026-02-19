@@ -150,6 +150,10 @@
       margin-right: 0; 
     }
   </style>
+  <meta name="mermaid-theme" content="forest">
+  <script src="agu-presentation_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="agu-presentation_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="agu-presentation_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <style>
   #title-slide .title {
     font-size: 1.25em;
@@ -459,21 +463,63 @@ Julie Deshayes
 </section>
 <section id="software-engineering" class="slide level2 smaller">
 <h2>Software engineering</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<h4 id="modular-generalizable"><strong>Modular &amp; Generalizable</strong></h4>
 <ul>
-<li>Identifying modular components that can be reused across problem domains</li>
-<li>Easy to extend and generalise software to:
-<ul>
-<li>other ocean models</li>
-<li>different file formats</li>
-<li>different problems</li>
-</ul></li>
-<li>Data products adhere to FAIR principles <span class="citation" data-cites="fair2016">(see <a href="#/references" role="doc-biblioref" onclick="">Wilkinson et al. 2016</a>)</span></li>
-<li>Well tested (unit, integration…) and good coverage.</li>
-<li>Bridge the gap between scientific expertise and professional software engineering to build sustainable research tools.
-<ul>
-<li><strong>Collaborative Design</strong>: Eliminate siloed workflows through cross-disciplinary partnership.</li>
-</ul></li>
+<li>Reusable components across domains</li>
+<li>Extensible to new models (e.g., NEMO, MITgcm)</li>
+<li>Agnostic to file formats &amp; problem sets</li>
 </ul>
+<p><br></p>
+<h4 id="quality-standards"><strong>Quality &amp; Standards</strong></h4>
+<ul>
+<li>Data products adhere to <strong>FAIR</strong> <span class="citation" data-cites="fair2016">(see <a href="#/references" role="doc-biblioref" onclick="">Wilkinson et al. 2016</a>)</span></li>
+<li>Robust testing (Unit, Integration, Coverage)</li>
+<li><strong>Collaborative Design</strong>: Bridging Science &amp; RSE</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<!-- ![](./images/rse-collaboration-diagram.png){fig-align="center"} -->
+<div class="cell" data-reveal="true" data-fig-width="4" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    A(Scientific Expertise) --- C{RSE Bridge}
+    B(Software Engineering) --- C
+    C --&gt; D[Sustainable Tools]
+
+    style A fill:#1a365d,color:#fff,stroke:#fff
+    style B fill:#1a365d,color:#fff,stroke:#fff
+    style C fill:#003E51,color:#fff,stroke:#fff
+    style D fill:#84BD00,color:#fff,stroke:#333
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<blockquote>
+<p>Eliminating silos through cross-disciplinary partnership.</p>
+</blockquote>
+</div></div>
+<aside class="notes">
+<ul>
+<li>Eliminate siloed workflows through cross-disciplinary partnership.</li>
+<li>Explain how RSEs act as the bridge mentioned in the last bullet.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!-- =============================================================================== -->
 <!-- {{< include _main_content.qmd >}} -->
 <!-- =============================================================================== -->
