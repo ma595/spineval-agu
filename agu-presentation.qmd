@@ -1,0 +1,147 @@
+---
+output-file: index
+title: "Spinup-Evaluation<br>"
+subtitle: "<br>A Physics-Based Benchmarking Platform for ML-based Spinup of the NEMO Ocean Model<br>"
+format:
+  revealjs:
+    embed-resources: false
+    chalkboard: false
+    preview-links: auto
+    history: false
+    highlight-style: a11y
+    code-overflow: wrap
+    code-line-numbers: true
+    logo: https://iccs.cam.ac.uk/files/iccs_ucam_combined_reverse_colour.png
+    theme: [dark, custom.scss]
+    preview: true
+    slide-number: true
+revealjs-plugins:
+  - attribution
+author:
+  - name: "`Matt Archer`"
+    orcid: 0009-0002-7043-6769
+  - name: Surbhi Goel
+  - name: Simon Sadler
+  - name: "Julie Deshayes"
+date: "2026-02-24"
+bibliography: references.bib
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 1.25em;
+        color: #fffff;
+      }
+      #title-slide .subtitle {
+        font-size: 1.0em;
+        color: #fffff;
+        margin-top: 10px;
+        margin-bottom: 20px
+      }
+      #title-slide .authors {
+        font-size: 1.0em;
+        color: #fffff;
+      }
+      .quarto-title-author:nth-child(1) .quarto-title-author-name::after,
+      .quarto-title-author:nth-child(2) .quarto-title-author-name::after,
+      .quarto-title-author:nth-child(3) .quarto-title-author-name::after {
+        content: "¹";
+        font-size: 0.7em;
+        vertical-align: super;
+      }
+      .quarto-title-author:nth-child(4) .quarto-title-author-name::after {
+        content: "²";
+        font-size: 0.7em;
+        vertical-align: super;
+      }
+      #title-slide::after {
+        content: "¹Institute of Computing for Climate Science (ICCS), University of Cambridge · ²Institut Pierre-Simon Laplace (IPSL)";
+        display: block;
+        font-style: italic;
+        font-size: 0.8em;
+        color: #fffafa;
+        margin-top: 1.5em;
+      }
+      </style>
+---
+
+{{< include _intro.qmd >}}
+
+<!-- =============================================================================== -->
+
+<!-- {{< include _main_content.qmd >}} -->
+
+<!-- =============================================================================== -->
+
+{{< include _conclusion.qmd >}}
+
+<!-- =============================================================================== -->
+<!-- 
+## Summary {.smaller}
+
+:::: {.columns}
+
+::: {.column width="45%"}
+### Key Points
+
+- Point 1
+- Point 2
+- Point 3
+
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+### Future Work
+
+- Next steps
+- Open questions
+
+:::
+
+:::: -->
+
+
+## Thanks for Listening {.smaller}
+
+:::: {.columns}
+
+::: {.column style="width:20%; font-size: 85%;"}
+Get in touch:
+:::
+::: {.column style="width: 40%; font-size: 85%;"}
+{{< fa pencil >}} \ Matt Archer
+
+{{< fa solid globe >}} \ [ma595.github.io](https://ma595.github.io)
+
+{{< fa solid envelope >}} \ [ma595[AT]cam.ac.uk](mailto:ma595@cam.ac.uk)
+
+{{< fa brands github >}} \ [ma595](https://github.com/ma595)
+
+:::
+
+\
+
+:::: {.columns}
+
+::: {.column style="width:70%;"}
+
+The ICCS received support from ![]( ./images/logos/schmidt_science.png ){height=2.4em style="margin: 0; vertical-align: -2%"}
+
+:::
+::: {.column style="width:30%; font-size: 85%;"}
+[{{< fa brands github >}}/m2lines/spinup-evaluation](https://github.com/m2lines/spinup-evaluation)
+
+{{< qrcode https://github.com/m2lines/spinup-evaluation width=150 height=150 >}}
+:::
+::::
+
+<!-- ![](./images/logos/FTorch.svg){style="width: 12%;" .absolute bottom=28% right=2%} -->
+
+![](https://iccs.cam.ac.uk/files/logo2_2.png){style="width: 12%;" .absolute bottom=19% right=2%}
+
+::::
+
+## References {.smaller}

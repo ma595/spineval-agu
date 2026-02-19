@@ -1,0 +1,235 @@
+## Spinup-evaluation {.smaller}
+
+- Spinup is slow. Thousands of simulation years to achieve equilibrium state. Temperature and salinity in deep ocean is slow to converge. 
+- Machine learning emulators exist but how do we know if they are correct? Errors can easily propagate - is RMSE MAE sufficient?
+- Our focus is on the physical evaluation of ocean models (both equation resolving and AI emulators)
+- Implement sustainable software that is easy to extend, robust and reusable. 
+- Generalise to be a evaluation benchmark for Climate c.f. Climate-Bench.
+
+
+## The [ICCS](https://iccs.cam.ac.uk/)^[See <https://iccs.cam.ac.uk/> for more details] {.smaller}
+
+The Institute of Computing for Climate Science
+
+* Domain-specific RSE group based at the University of Cambridge
+* Embedded support to several international climate science projects 
+
+![]( ./images/iccs/ICCS_streams.png){fig-align="center"}
+
+::: {.notes}
+My background in this is ML and numerical modelling on HPC. 
+:::
+
+#
+
+![]( ./images/iccs/BetterSoftwareBetterResearch.png){fig-align="center"}
+
+## NEMO/DINO ocean model
+
+
+:::: {.columns}
+
+::: {.column style="width:70%;"}
+
+![](./images/DINO-sphere.png){style="width: 50%; background-color: white; padding: 5px;" .absolute bottom=20% left=10%}
+
+
+:::
+::: {.column style="width:30%; font-size: 85%; margin-top: 100px;"}
+[{{< fa brands github >}}/vopikamm/DINO](https://github.com/vopikamm/DINO)
+
+
+![](./images/logos/NEMO_logo.png){style="width: 12%; background-color: white; padding: 5px;" .absolute top=1% right=8%}
+
+<!-- ![](./images/globe_currents.jpg){style="width: 12%; background-color: white; padding: 5px;" .absolute top=3% right=2%} -->
+
+{{< qrcode https://github.com/vopikamm/DINO width=150 height=150 >}}
+:::
+
+::: {.absolute style="font-size: 0.6em; bottom: 3%; left: 40%; transform: translateX(-50%);"}
+We use the DINO configuration [@kamm2025] for development purposes.
+:::
+
+::::
+
+
+
+
+
+
+## Is RMSE enough? {auto-animate=true}
+
+
+:::: {.columns}
+
+::: {.column style="width:70%;"}
+
+![](./images/DINO_output_ph.png){style="width: 12%; background-color: white; padding: 5px;" .absolute bottom=20% left=10%}
+
+![](./images/DINO_output_ph2.png){style="width: 12%; background-color: white; padding: 5px;" .absolute bottom=20% left=35%}
+
+
+:::
+::: {.column style="width:30%; font-size: 85%; margin-top: 100px;"}
+[{{< fa brands github >}}/vopikamm/DINO](https://github.com/vopikamm/DINO)
+
+
+<!-- ![](./images/logos/NEMO_logo.png){style="width: 12%; background-color: white; padding: 5px;" .absolute top=1% right=8%} -->
+
+<!-- ![](./images/globe_currents.jpg){style="width: 12%; background-color: white; padding: 5px;" .absolute top=3% right=2%} -->
+
+{{< qrcode https://github.com/vopikamm/DINO width=150 height=150 >}}
+:::
+
+::: {.absolute style="font-size: 0.6em; bottom: 3%; left: 40%; transform: translateX(-50%);"}
+Evaluation that works even when resolution changes?
+:::
+
+::::
+<!-- globe currents : https://solstice-wio.org/technologies/high-resolution-ocean-modelling -->
+
+
+## Evaluation-Benchmark
+
+::: {style="position: relative; height: 500px; margin: 50px;"}
+
+<!-- Horizontal divider lines -->
+::: {style="position: absolute; top: 27%; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, #555, transparent); opacity: 0.95;"}
+:::
+
+::: {style="position: absolute; top: 70%; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, #555, transparent); opacity: 0.95;"}
+:::
+
+<!-- Hybrid Model - Top Right -->
+::: {style="position: absolute; top: 0; right: 0; display: flex; align-items: center; gap: 15px;"}
+::: {style="font-size: 0.6em; color: #ccc; text-align: right; max-width: 380px;"}
+- AI emulator or traditional time integrator of physical quantities, or both
+:::
+::: {style="background-color: #2ecc71; color: white; padding: 20px 35px; border-radius: 8px; text-align: center; font-size: 0.9em; font-weight: bold; white-space: nowrap;"}
+Hybrid Model
+:::
+:::
+
+<!-- Translator - Mid Left -->
+::: {style="position: absolute; top: 48%; left: 0; transform: translateY(-50%); display: flex; align-items: center; gap: 15px;"}
+::: {style="background-color: #e74c3c; color: white; padding: 20px 35px; border-radius: 8px; text-align: center; font-size: 0.9em; font-weight: bold; white-space: nowrap;"}
+Translator<br>Restart Toolbox
+:::
+::: {style="font-size: 0.6em; color: #ccc; text-align: left; max-width: 380px;"}
+- Create restart state from AI emulator
+- Convert restart states between different ocean models
+:::
+:::
+
+<!-- Physical-Evaluation - Bottom Right -->
+::: {style="position: absolute; bottom: 0; right: 0; display: flex; align-items: center; gap: 15px;"}
+::: {style="font-size: 0.6em; color: #ccc; text-align: right; max-width: 380px;"}
+- Physical evaluation of instantaneous and temporal fields
+  - [GridT, restart].nc
+:::
+::: {style="background-color: #3498db; color: white; padding: 20px 35px; border-radius: 8px; text-align: center; font-size: 0.9em; font-weight: bold; white-space: nowrap;"}
+Physical-Evaluation
+:::
+:::
+
+:::
+
+
+## Physical evaluation
+::: {style="font-size: 0.6em;"}
+- Temperature and salinity integrals over physically meaningful geometries relevant to assessing spinup process.
+:::
+
+![Figure from *Learning to generate physical ocean states: Towards hybrid climate modeling*. @meunier2025](./images/metrics.png){fig-align="center" width="70%" style="background-color: white; padding: 5px;"}
+
+<!-- ::: {.attribution}
+@meunier2025
+::: -->
+
+
+## Developer highlights
+
+### Spinup-evaluation 
+
+:::: {.columns style="gap: 5%;"}
+
+::: {.column style="width:55%;"}
+
+::: {style="font-size: 0.65em;"}
+- Compute physical metrics
+  - no ground truth
+- Execution modes:
+  - Evaluate ocean emulators at `end time` only. 
+  - Evaluate ocean emulators iteratively over `experiment duration` and check convergence of ocean dynamics.
+  - `Correct` emulator predictions by feeding state back into ocean model and then evaluate. 
+  - Use as part of AI emulation `optimisation` procedure (i.e. loss function). 
+:::
+
+:::
+
+::: {.column style="width:40%; font-size: 65%; padding-left: 30px;"}
+[{{< fa brands github >}}/m2lines/spinup-evaluation](https://github.com/vopikamm/DINO)
+
+{{< qrcode https://github.com/m2lines/spinup-evaluation width=150 height=150 >}}
+
+version `0.2.1`
+:::
+
+::::
+
+
+
+
+## Developer highlights
+
+### Spinup-evaluation 
+
+:::: {.columns style="gap: 5%;"}
+
+::: {.column style="width:55%;"}
+
+::: {style="font-size: 0.65em;"}
+- Computes metrics on restart and grid output files and comparisons if reference provided
+- Strict mapping of ocean variables to restart and output variable names
+- Relies on utilising spinup-restart/translator to massage outputs into compatible format and incorporate modelling assumptions.
+:::
+
+:::
+
+::: {.column style="width:40%; font-size: 65%; padding-left: 30px;"}
+[{{< fa brands github >}}/m2lines/spinup-evaluation](https://github.com/vopikamm/DINO)
+
+{{< qrcode https://github.com/m2lines/spinup-evaluation width=150 height=150 >}}
+
+version `0.2.1`
+:::
+
+::::
+
+
+
+## Developer highlights
+### Restart/translator {.smaller}
+
+::: {style="font-size: 0.65em;"}
+- Take an emulator state and convert to NEMO compatible restart file
+- Regrid; upscale, downscale resolution;
+- Apply other physical assumptions:
+  - geostrophic velocities
+- Translate between other ocean models: $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM6$$  
+:::
+
+  <!-- - to establish structural uncertainty between different ocean models.  -->
+
+
+## Software engineering {.smaller}
+- Identifying modular components that can be reused across problem domains
+- Easy to extend and generalise software to:
+  - other ocean models
+  - different file formats 
+  - different problems
+- Data products adhere to FAIR principles [see @fair2016]
+- Well tested (unit, integration...) and good coverage. 
+- Bridge the gap between scientific expertise and professional software engineering to build sustainable research tools.
+  - **Collaborative Design**: Eliminate siloed workflows through cross-disciplinary partnership.
+

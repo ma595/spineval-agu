@@ -1,0 +1,15 @@
+## Conclusions {.smaller}
+
+### Key Takeaways
+
+1. **Main conclusion**: Description
+2. **Secondary insight**: Description
+3. **Broader impact**: Description
+
+<br>
+
+### Next Steps
+
+- Future work direction 1
+- Future work direction 2
+- Collaboration opportunities
