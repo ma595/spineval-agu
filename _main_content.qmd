@@ -1,5 +1,5 @@
 ## Main Section {.smaller}
-<!-- 
+
 :::: {.columns}
 
 ::: {.column width="45%"}
@@ -23,7 +23,7 @@
 
 :::
 
-:::: -->
+::::
 
 
 <!-- ## Method/Approach {.smaller auto-animate=true} -->
@@ -36,4 +36,4 @@
 Image attribution here
 :::
 
- -->
+

@@ -36,7 +36,7 @@ include-in-header:
         font-size: 1.0em;
         color: #fffff;
         margin-top: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 20px
       }
       #title-slide .authors {
         font-size: 1.0em;
@@ -69,14 +69,14 @@ include-in-header:
 
 <!-- =============================================================================== -->
 
-{{< include _main_content.qmd >}}
+<!-- {{< include _main_content.qmd >}} -->
 
 <!-- =============================================================================== -->
 
 {{< include _conclusion.qmd >}}
 
 <!-- =============================================================================== -->
-
+<!-- 
 ## Summary {.smaller}
 
 :::: {.columns}
@@ -101,7 +101,7 @@ include-in-header:
 
 :::
 
-::::
+:::: -->
 
 
 ## Thanks for Listening {.smaller}
