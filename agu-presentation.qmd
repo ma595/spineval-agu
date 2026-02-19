@@ -124,16 +124,23 @@ Get in touch:
 
 :::
 
+::: {.column style="width: 40%; font-size: 85%;"}
+
+[Slides](https://github.com/ma595/spineval-agu)
+
+{{< qrcode https://ma595.github.io/spineval-agu width=150 height=150 >}}
+:::
+
 \
 
 :::: {.columns}
 
-::: {.column style="width:70%;"}
+::: {.column style="width:60%;"}
 
 The ICCS received support from ![]( ./images/logos/schmidt_science.png ){height=2.4em style="margin: 0; vertical-align: -2%"}
 
 :::
-::: {.column style="width:30%; font-size: 85%;"}
+::: {.column style="width:40%; font-size: 85%;"}
 [{{< fa brands github >}}/m2lines/spinup-evaluation](https://github.com/m2lines/spinup-evaluation)
 
 {{< qrcode https://github.com/m2lines/spinup-evaluation width=150 height=150 >}}
@@ -142,7 +149,7 @@ The ICCS received support from ![]( ./images/logos/schmidt_science.png ){height=
 
 <!-- ![](./images/logos/FTorch.svg){style="width: 12%;" .absolute bottom=28% right=2%} -->
 
-![](https://iccs.cam.ac.uk/files/logo2_2.png){style="width: 12%;" .absolute bottom=19% right=2%}
+<!-- ![](https://iccs.cam.ac.uk/files/logo2_2.png){style="width: 12%;" .absolute bottom=19% right=2%} -->
 
 ::::
 

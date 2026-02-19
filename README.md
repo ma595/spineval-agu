@@ -1,6 +1,8 @@
 # AGU Presentation
 
-Slides for AGU 2026 - "Your Presentation Title Here"
+Slides for AGU 2026 - "A Physics-Based Benchmarking Platform for ML-based Spinup off the NEMO Ocean Model"
+
+Slide rendered [here](https://ma595.github.io/spineval-agu).
 
 ## Building
 
