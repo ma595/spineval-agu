@@ -109,33 +109,46 @@ Evaluation that works even when resolution changes?
 :::
 
 <!-- Curved arrow along left side -->
-<svg class="fragment" data-fragment-index="2" style="position: absolute; left: 0; top: 10%; width: 150px; height: 80%; z-index: 0;" viewBox="0 0 150 500">
+<!-- <svg class="fragment" data-fragment-index="2" style="position: absolute; left: 0; top: 10%; width: 150px; height: 80%; z-index: 0;" viewBox="0 0 150 500">
   <path d="M 120 0 Q 20 250, 120 500" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead-left)" opacity="0.7"/>
   <defs>
     <marker id="arrowhead-left" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
     </marker>
   </defs>
+</svg> -->
+
+<svg class="fragment" data-fragment-index="2" style="position: absolute; right: 0; top: 10%; width: 150px; height: 80%; z-index: 0;" viewBox="0 0 150 500">
+  <path d="M 30 0 Q 130 250, 30 500" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead-right)" opacity="0.7"/>
+  <defs>
+    <marker id="arrowhead-right" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
+    </marker>
+  </defs>
 </svg>
 
-::: {.box-row .fragment data-fragment-index="0" style="top: 0; justify-content: flex-end;"}
-::: {.label style="text-align: right;"}
-- AI emulator or traditional time integrator of physical quantities.
-:::
-::: {.box style="background-color: #2ecc71;"}
-Ocean Model
-:::
-:::
 
-::: {.box-row .fragment data-fragment-index="0" style="top: 0; justify-content: left;"}
+
+
+
+::: {.box-row .fragment data-fragment-index="0" style="top: 0; justify-content: flex-end;"}
 ::: {.label style="text-align: left;"}
+ AI emulator or traditional time integrator of physical quantities.
 :::
 ::: {.box style="background-color: #2ecc71;"}
 Emulator
 :::
 :::
 
-<svg class="fragment" data-fragment-index="1" style="position: absolute; top: 85px; right: 85px; width: 40px; height: 330px; z-index: 1;" viewBox="0 0 40 300">
+::: {.box-row .fragment data-fragment-index="0" style="top: 0; left: 10%;"}
+::: {.label style="text-align: left;"}
+:::
+::: {.box style="background-color: #2ecc71;"}
+Ocean Model
+:::
+:::
+
+<svg class="fragment" data-fragment-index="1" style="position: absolute; top: 85px; left: 85px; width: 40px; height: 330px; z-index: 1;" viewBox="0 0 40 300">
   <path d="M 20 80 L 20 240" stroke="#888" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
@@ -144,16 +157,17 @@ Emulator
   </defs>
 </svg>
 
-::: {.box-row .fragment data-fragment-index="1" style="bottom: -40px; justify-content: flex-end;"}
-::: {.label style="text-align: right;"}
-- Physical evaluation of instantaneous and temporal fields [`GridT`, `restart`].nc
-:::
+
+::: {.box-row .fragment data-fragment-index="1" style="bottom: -40px; left: 10%; justify-content: flex-start;"}
 ::: {.box style="background-color: #3498db;"}
 Physical-Evaluation
 :::
+::: {.label style="text-align: left;"}
+- Physical evaluation of instantaneous and temporal fields [`GridT`, `restart`].nc
+:::
 :::
 
-::: {.box-row .fragment data-fragment-index="2" style="top: 55%; transform: translateY(-50%);"}
+::: {.box-row .fragment data-fragment-index="2" style="top: 55%; left: 30%; transform: translateY(-50%);"}
 ::: {.box style="background-color: #e74c3c;"}
 Translator<br> Toolbox
 :::
@@ -164,7 +178,6 @@ Translator<br> Toolbox
 :::
 
 :::
-
 
 
 ## Physical evaluation
