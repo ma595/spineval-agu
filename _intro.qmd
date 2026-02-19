@@ -120,10 +120,18 @@ Evaluation that works even when resolution changes?
 
 ::: {.box-row .fragment data-fragment-index="0" style="top: 0; justify-content: flex-end;"}
 ::: {.label style="text-align: right;"}
-- AI emulator or traditional time integrator of physical quantities, or both
+- AI emulator or traditional time integrator of physical quantities.
 :::
 ::: {.box style="background-color: #2ecc71;"}
-Ocean Model /<br>Emulator
+Ocean Model
+:::
+:::
+
+::: {.box-row .fragment data-fragment-index="0" style="top: 0; justify-content: left;"}
+::: {.label style="text-align: left;"}
+:::
+::: {.box style="background-color: #2ecc71;"}
+Emulator
 :::
 :::
 
@@ -138,7 +146,7 @@ Ocean Model /<br>Emulator
 
 ::: {.box-row .fragment data-fragment-index="1" style="bottom: -40px; justify-content: flex-end;"}
 ::: {.label style="text-align: right;"}
-- Physical evaluation of instantaneous and temporal fields [GridT, restart].nc
+- Physical evaluation of instantaneous and temporal fields [`GridT`, `restart`].nc
 :::
 ::: {.box style="background-color: #3498db;"}
 Physical-Evaluation
@@ -150,8 +158,8 @@ Physical-Evaluation
 Translator<br> Toolbox
 :::
 ::: {.label}
-- Create restart state from AI emulator<br>
-- Convert restart states between different models
+- Create `restart` state from AI emulator<br>
+- `Convert` states between different models
 :::
 :::
 
