@@ -41,7 +41,7 @@ $link-color: $linkcolour !default;
     justify-content: center;
     gap: 0.5em;
     margin-top: 1em;
-    margin-bottom:1em;
+    margin-bottom: 1em;
     flex-wrap: wrap;
   }
 
@@ -57,23 +57,31 @@ $link-color: $linkcolour !default;
   }
 }
 
+.reveal.mermaid text {
+  text-anchor: middle !important;
+  dominant-baseline: middle !important;
+}
+
 // Increase logo size
 .reveal .slide-logo {
-  max-height: 80px !important;  // Default is usually 48px
+  max-height: 80px !important; // Default is usually 48px
   height: 80px !important;
 }
 
 /*-- Get rid of column margins - quarto revealjs has strange behaviour --*/
-.reveal .columns > {
-  .column,  .column:last-child  {
+.reveal .columns> {
+
+  .column,
+  .column:last-child {
 
     > :not(ul, ol) {
-      
+
       margin-left: 0em;
       margin-right: 0em;
     }
 
-    > ul, > ol {
+    >ul,
+    >ol {
       margin-left: 0em;
       margin-right: 0em;
     }
