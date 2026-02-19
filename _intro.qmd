@@ -222,15 +222,47 @@ version `0.2.1`
 
   <!-- - to establish structural uncertainty between different ocean models.  -->
 
-
 ## Software engineering {.smaller}
-- Identifying modular components that can be reused across problem domains
-- Easy to extend and generalise software to:
-  - other ocean models
-  - different file formats 
-  - different problems
-- Data products adhere to FAIR principles [see @fair2016]
-- Well tested (unit, integration...) and good coverage. 
-- Bridge the gap between scientific expertise and professional software engineering to build sustainable research tools.
-  - **Collaborative Design**: Eliminate siloed workflows through cross-disciplinary partnership.
 
+::: {.columns}
+
+::: {.column width="55%"}
+#### **Modular & Generalizable**
+- Reusable components across domains
+- Extensible to new models (e.g., NEMO, MITgcm)
+- Agnostic to file formats & problem sets
+
+<br/>
+
+#### **Quality & Standards**
+- Data products adhere to **FAIR** [see @fair2016]
+- Robust testing (Unit, Integration, Coverage)
+- **Collaborative Design**: Bridging Science & RSE
+:::
+
+::: {.column width="45%"}
+<!-- ![](./images/rse-collaboration-diagram.png){fig-align="center"} -->
+
+```{mermaid}
+%%| fig-align: center
+%%| fig-width: 4
+graph TD
+    A(Scientific Expertise) --- C{RSE Bridge}
+    B(Software Engineering) --- C
+    C --> D[Sustainable Tools]
+
+    style A fill:#1a365d,color:#fff,stroke:#fff
+    style B fill:#1a365d,color:#fff,stroke:#fff
+    style C fill:#003E51,color:#fff,stroke:#fff
+    style D fill:#84BD00,color:#fff,stroke:#333
+```
+
+> Eliminating silos through cross-disciplinary partnership.
+:::
+
+:::
+
+::: {.notes}
+- Eliminate siloed workflows through cross-disciplinary partnership.
+- Explain how RSEs act as the bridge mentioned in the last bullet.
+:::
