@@ -55,37 +55,78 @@ We use the DINO configuration [@kamm2025] for development purposes.
 
 
 
+## Is RMSE enough? {auto-animate=true}
+
+
+::: {style="display: flex; flex-direction: column; align-items: center; justify-content: center;"}
+
+<div style="display: flex; align-items: center; justify-content: center; gap: 2px;">
+
+![](./images/gen1_surface.png){width="70%" style="background-color: white; padding: 2px;"}
+
+![](./images/gen4_surface.png){width="70%" style="background-color: white; padding: 2px;"}
+
+![](./images/reference_surface.png){width="70%" style="background-color: white; padding: 2px;"}
+
+</div>
+
+![](./images/colorbar_density.png){width="50%" style="padding: 5px; margin-top: 5px;"}
+
+:::
+
+
+::: {.absolute style="font-size: 0.6em; bottom: 3%; left: 20%; transform: translateX(-40%);"}
+Evaluation that works even when resolution changes?
+:::
 
 
 ## Is RMSE enough? {auto-animate=true}
 
 
-:::: {.columns}
+::: {style="display: flex; flex-direction: column; align-items: center; justify-content: center;"}
 
-::: {.column style="width:70%;"}
+<div style="display: flex; align-items: center; justify-content: center; gap: 2px;">
 
-![](./images/DINO_output_ph.png){style="width: 12%; background-color: white; padding: 5px;" .absolute bottom=20% left=10%}
+![](./images/gen1_vertical.png){width="70%" style="background-color: white; padding: 2px;"}
 
-![](./images/DINO_output_ph2.png){style="width: 12%; background-color: white; padding: 5px;" .absolute bottom=20% left=35%}
+![](./images/gen4_vertical.png){width="70%" style="background-color: white; padding: 2px;"}
 
+![](./images/reference_vertical.png){width="70%" style="background-color: white; padding: 2px;"}
+
+</div>
+
+![](./images/colorbar_density.png){width="50%" style="padding: 5px; margin-top: 5px;"}
 
 :::
+
+
+::: {.absolute style="font-size: 0.6em; bottom: 3%; left: 20%; transform: translateX(-40%);"}
+Evaluation that works even when resolution changes?
+:::
+
+
+<!-- ::: {.column style="width:20%;"} -->
+
+<!-- {{< qrcode https://github.com/vopikamm/DINO width=100 height=150 >}}
+::: -->
+
+<!-- ::: -->
+<!-- ![](./images/DINO_output_ph.png){style="width: 12%; background-color: white; padding: 5px;" .absolute bottom=20% left=10%}
+
+![](./images/DINO_output_ph2.png){style="width: 12%; background-color: white; padding: 5px;" .absolute bottom=20% left=35%} -->
+
+
+<!-- :::
 ::: {.column style="width:30%; font-size: 85%; margin-top: 100px;"}
-[{{< fa brands github >}}/vopikamm/DINO](https://github.com/vopikamm/DINO)
+[{{< fa brands github >}}/vopikamm/DINO](https://github.com/vopikamm/DINO) -->
 
 
 <!-- ![](./images/logos/NEMO_logo.png){style="width: 12%; background-color: white; padding: 5px;" .absolute top=1% right=8%} -->
 
 <!-- ![](./images/globe_currents.jpg){style="width: 12%; background-color: white; padding: 5px;" .absolute top=3% right=2%} -->
 
-{{< qrcode https://github.com/vopikamm/DINO width=150 height=150 >}}
-:::
 
-::: {.absolute style="font-size: 0.6em; bottom: 3%; left: 40%; transform: translateX(-50%);"}
-Evaluation that works even when resolution changes?
-:::
 
-::::
 <!-- globe currents : https://solstice-wio.org/technologies/high-resolution-ocean-modelling -->
 
 
@@ -148,7 +189,7 @@ Ocean Model
 :::
 :::
 
-<svg class="fragment" data-fragment-index="1" style="position: absolute; top: 85px; left: 85px; width: 40px; height: 330px; z-index: 1;" viewBox="0 0 40 300">
+<svg class="fragment" data-fragment-index="1" style="position: absolute; top: 55px; left: 150px; width: 40px; height: 330px; z-index: 1;" viewBox="0 0 40 300">
   <path d="M 20 80 L 20 240" stroke="#888" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
@@ -288,17 +329,15 @@ version `0.2.1`
 <!-- ![](./images/rse-collaboration-diagram.png){fig-align="center"} -->
 
 ```{mermaid}
-%%| fig-align: center
 %%| fig-width: 4
 graph TD
     A(Scientific Expertise) --- C{RSE Bridge}
     B(Software Engineering) --- C
     C --> D[Sustainable Tools]
-
-  %% Applying explicit styles to prevent theme clashing
-    classDef default fill:#1a365d,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef highlight fill:#84BD00,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef bridge fill:#003E51,stroke:#fff,stroke-width:2px,color:#fff;
+    
+    classDef default fill:#1a365d,stroke:#fff,stroke-width:2px,color:#fff,font-size:18px;
+    classDef highlight fill:#84BD00,stroke:#fff,stroke-width:2px,color:#fff,font-size:18px;
+    classDef bridge fill:#003E51,stroke:#fff,stroke-width:2px,color:#fff,font-size:18px;
 
     class A,B default;
     class C bridge;
