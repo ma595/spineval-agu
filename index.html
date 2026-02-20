@@ -297,28 +297,43 @@ Julie Deshayes
 </section>
 <section id="is-rmse-enough" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Is RMSE enough?</h2>
-<div class="columns">
-<div class="column" style="width:70%;">
-<p><img data-src="./images/DINO_output_ph.png" class="absolute" style="width: 12%; background-color: white; padding: 5px;left: 10%; bottom: 20%; "></p>
-<p><img data-src="./images/DINO_output_ph2.png" class="absolute" style="width: 12%; background-color: white; padding: 5px;left: 35%; bottom: 20%; "></p>
-</div><div class="column" style="width:30%; font-size: 85%; margin-top: 100px;">
-<p><a href="https://github.com/vopikamm/DINO"><i class="fa-brands fa-github" aria-label="github"></i>/vopikamm/DINO</a></p>
-<!-- ![](./images/logos/NEMO_logo.png){style="width: 12%; background-color: white; padding: 5px;" .absolute top=1% right=8%} -->
-<!-- ![](./images/globe_currents.jpg){style="width: 12%; background-color: white; padding: 5px;" .absolute top=3% right=2%} -->
-<div id="" class="qrcode"></div>
-<script type="text/javascript">
-(function() {
-  var script = document.currentScript;
-  var qrcode = script.previousElementSibling;
-  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":"150","text":"https://github.com/vopikamm/DINO","width":"150"});
-  script.remove();
-})();
-</script>
-    
-</div><div class="absolute" style="font-size: 0.6em; bottom: 3%; left: 40%; transform: translateX(-50%);">
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<div style="display: flex; align-items: center; justify-content: center; gap: 2px;">
+<p><img data-src="./images/gen1_surface.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
+<p><img data-src="./images/gen4_surface.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
+<p><img data-src="./images/reference_surface.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
+</div>
+<p><img data-src="./images/colorbar_density.png" style="padding: 5px; margin-top: 5px;;width:50.0%"></p>
+</div>
+<div class="absolute" style="font-size: 0.6em; bottom: 3%; left: 20%; transform: translateX(-40%);">
 <p>Evaluation that works even when resolution changes?</p>
 </div>
+</section>
+<section id="is-rmse-enough-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Is RMSE enough?</h2>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<div style="display: flex; align-items: center; justify-content: center; gap: 2px;">
+<p><img data-src="./images/gen1_vertical.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
+<p><img data-src="./images/gen4_vertical.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
+<p><img data-src="./images/reference_vertical.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
 </div>
+<p><img data-src="./images/colorbar_density.png" style="padding: 5px; margin-top: 5px;;width:50.0%"></p>
+</div>
+<div class="absolute" style="font-size: 0.6em; bottom: 3%; left: 20%; transform: translateX(-40%);">
+<p>Evaluation that works even when resolution changes?</p>
+</div>
+<!-- ::: {.column style="width:20%;"} -->
+<!-- 
+::: -->
+<!-- ::: -->
+<!-- ![](./images/DINO_output_ph.png){style="width: 12%; background-color: white; padding: 5px;" .absolute bottom=20% left=10%}
+
+![](./images/DINO_output_ph2.png){style="width: 12%; background-color: white; padding: 5px;" .absolute bottom=20% left=35%} -->
+<!-- :::
+::: {.column style="width:30%; font-size: 85%; margin-top: 100px;"}
+[/vopikamm/DINO](https://github.com/vopikamm/DINO) -->
+<!-- ![](./images/logos/NEMO_logo.png){style="width: 12%; background-color: white; padding: 5px;" .absolute top=1% right=8%} -->
+<!-- ![](./images/globe_currents.jpg){style="width: 12%; background-color: white; padding: 5px;" .absolute top=3% right=2%} -->
 <!-- globe currents : https://solstice-wio.org/technologies/high-resolution-ocean-modelling -->
 <style>
   .flow-container { position: relative; height: 450px; margin: 20px; }
@@ -366,7 +381,7 @@ Julie Deshayes
 <p>Ocean Model</p>
 </div>
 </div>
-<svg class="fragment" data-fragment-index="1" style="position: absolute; top: 85px; left: 85px; width: 40px; height: 330px; z-index: 1;" viewbox="0 0 40 300">
+<svg class="fragment" data-fragment-index="1" style="position: absolute; top: 55px; left: 150px; width: 40px; height: 330px; z-index: 1;" viewbox="0 0 40 300">
 <path d="M 20 80 L 20 240" stroke="#888" stroke-width="2" fill="none" marker-end="url(#arrowhead)"></path> <defs> <marker id="arrowhead" markerwidth="10" markerheight="7" refx="10" refy="3.5" orient="auto"> <polygon points="0 0, 10 3.5, 0 7" fill="#888"></polygon> </marker> </defs>
 </svg>
 <div class="box-row fragment" data-fragment-index="1" style="bottom: -40px; left: 10%; justify-content: flex-start;">
@@ -502,7 +517,7 @@ Julie Deshayes
 </ul>
 </div><div class="column" style="width:45%;">
 <!-- ![](./images/rse-collaboration-diagram.png){fig-align="center"} -->
-<div class="cell" data-reveal="true" data-fig-width="4" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="4" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
@@ -511,11 +526,10 @@ Julie Deshayes
     A(Scientific Expertise) --- C{RSE Bridge}
     B(Software Engineering) --- C
     C --&gt; D[Sustainable Tools]
-
-  %% Applying explicit styles to prevent theme clashing
-    classDef default fill:#1a365d,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef highlight fill:#84BD00,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef bridge fill:#003E51,stroke:#fff,stroke-width:2px,color:#fff;
+    
+    classDef default fill:#1a365d,stroke:#fff,stroke-width:2px,color:#fff,font-size:18px;
+    classDef highlight fill:#84BD00,stroke:#fff,stroke-width:2px,color:#fff,font-size:18px;
+    classDef bridge fill:#003E51,stroke:#fff,stroke-width:2px,color:#fff,font-size:18px;
 
     class A,B default;
     class C bridge;
