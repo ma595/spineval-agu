@@ -238,7 +238,7 @@ Julie Deshayes
 <h3 id="accelerating-spinup">Accelerating Spinup</h3>
 <div class="fragment" data-fragment-index="1">
 <ul>
-<li>Ocean spinup is <code>slow</code>. Upwards of a 1000 years to achieve equilibrium state!</li>
+<li>Ocean spinup is <code>slow</code>. Upwards of a 1000 simulation years to achieve equilibrium state!</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-out" data-fragment-index="1" style="position: absolute; width: 60%;">
@@ -270,7 +270,7 @@ Julie Deshayes
 </ul>
 </div>
 <aside class="notes">
-<p>Temperature and salinity in deep ocean is slow to converge. Is RMSE sufficient? tend towards averaged state due to RMSE I’ve emphasized hybrid as well here, because it’s likely that ML will not be able to get you completely there. Tools to reshape data from emulators to climate model</p>
+<p>Temperature and salinity in deep ocean is slow to converge. Is RMSE sufficient? AI experts tend to use RMSE over some standard fields. Which means that we tend towards an averaged state over long roll out times I’ve emphasized hybrid as well here, because it’s likely that ML will not be able to get Tools to reshape data from emulators to climate model</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -332,6 +332,23 @@ Julie Deshayes
 <p>We use the DINO configuration <span class="citation" data-cites="kamm2025">(<a href="#/references" role="doc-biblioref" onclick="">Kamm, Deshayes, and Madec 2025</a>)</span> for development purposes.</p>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>not important to go into detail about the DINO test problem. I believe David is here presenting work on this so please do ask him questions on this - not me.</li>
+<li>It is important to note that although this has been our development</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!-- =============================================================================== -->
 </section>
 <section id="is-rmse-enough" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Is RMSE enough?</h2>
@@ -358,22 +375,28 @@ Reference
 </div>
 <p><img data-src="./images/colorbar_density.png" style="padding: 5px; margin-top: 5px;;width:50.0%"></p>
 </div>
-<div class="absolute" style="bottom: 15%; right: 5%; font-size: 0.6em;">
+<div class="absolute" style="bottom: 10%; right: 5%; font-size: 0.6em;">
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th></th>
-<th style="text-align: center;">Unconstrained</th>
-<th style="text-align: center;">Constrained</th>
+<th style="text-align: center;"><em>Unconstrained</em></th>
+<th style="text-align: center;"><em>Constrained</em></th>
 <th style="text-align: center;">Reference</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>RMSE</td>
-<td style="text-align: center;">1.0</td>
-<td style="text-align: center;">0.8</td>
-<td style="text-align: center;">0.0</td>
+<td><span class="math inline">\(T\)</span> DW</td>
+<td style="text-align: center;">2.9</td>
+<td style="text-align: center;"><strong>2.6</strong></td>
+<td style="text-align: center;">2.6</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\rho\)</span> error</td>
+<td style="text-align: center;">26.8</td>
+<td style="text-align: center;"><strong>0.4</strong></td>
+<td style="text-align: center;">0.4</td>
 </tr>
 </tbody>
 </table>
@@ -384,6 +407,26 @@ Reference
 <div class="attribution">
 <p><span class="citation" data-cites="meunier2025">Meunier et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, <span class="citation" data-cites="gorce2025">Gorce et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></p>
 </div>
+<aside class="notes">
+<ul>
+<li>These are results from a diffusion model to sample from a equilibrated distribution. The justification is that there may not be just one valid spinup state.</li>
+<li>I’m not going to describe the work - you can find it by following the link.</li>
+<li>Suffice it to say that in this case better diffusion outputs may lead to higher RMSE. This is because</li>
+<li>critically only one leads to a successful restart of NEMO even though the RMSE is relatively close in each case.</li>
+<li>the middle figure captures the high energy modes such as eddies</li>
+<li>it also caputres the stratification that is essential for nemo to run without a physical shock</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="is-rmse-enough-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Is RMSE enough?</h2>
@@ -408,22 +451,28 @@ Reference
 </p>
 </div>
 </div>
-<div class="absolute" style="bottom: 15%; right: 5%; font-size: 0.6em;">
+<div class="absolute" style="bottom: 10%; right: 5%; font-size: 0.6em;">
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th></th>
-<th style="text-align: center;">Unconstrained</th>
-<th style="text-align: center;">Constrained</th>
+<th style="text-align: center;"><em>Unconstrained</em></th>
+<th style="text-align: center;"><em>Constrained</em></th>
 <th style="text-align: center;">Reference</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>RMSE</td>
-<td style="text-align: center;">1.0</td>
-<td style="text-align: center;">0.8</td>
-<td style="text-align: center;">0.0</td>
+<td><span class="math inline">\(T\)</span> DW</td>
+<td style="text-align: center;">2.9</td>
+<td style="text-align: center;"><strong>2.6</strong></td>
+<td style="text-align: center;">2.6</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\rho\)</span> error</td>
+<td style="text-align: center;">26.8</td>
+<td style="text-align: center;"><strong>0.4</strong></td>
+<td style="text-align: center;">0.4</td>
 </tr>
 </tbody>
 </table>
@@ -436,19 +485,6 @@ Reference
 <div class="attribution">
 <p><span class="citation" data-cites="meunier2025">Meunier et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, <span class="citation" data-cites="gorce2025">Gorce et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></p>
 </div>
-<!-- ::: {.column style="width:20%;"} -->
-<!-- 
-::: -->
-<!-- ::: -->
-<!-- ![](./images/DINO_output_ph.png){style="width: 12%; background-color: white; padding: 5px;" .absolute bottom=20% left=10%}
-
-![](./images/DINO_output_ph2.png){style="width: 12%; background-color: white; padding: 5px;" .absolute bottom=20% left=35%} -->
-<!-- :::
-::: {.column style="width:30%; font-size: 85%; margin-top: 100px;"}
-[/vopikamm/DINO](https://github.com/vopikamm/DINO) -->
-<!-- ![](./images/logos/NEMO_logo.png){style="width: 12%; background-color: white; padding: 5px;" .absolute top=1% right=8%} -->
-<!-- ![](./images/globe_currents.jpg){style="width: 12%; background-color: white; padding: 5px;" .absolute top=3% right=2%} -->
-<!-- globe currents : https://solstice-wio.org/technologies/high-resolution-ocean-modelling -->
 <style>
   .flow-container { position: relative; height: 450px; margin: 20px; }
   .line { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, #555, transparent); opacity: 0.6; }
@@ -526,7 +562,7 @@ Reference
 <div class="label">
 <ul>
 <li>Create <code>restart</code> state from AI emulator<br></li>
-<li><code>Convert</code> states between different models.</li>
+<li><code>Convert</code> states between different models. Might be important for structural uncertainty.</li>
 </ul>
 </div>
 </div>
@@ -606,13 +642,13 @@ reference files
 <div data-id="restart-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 3;">
 restart.nc
 </div>
-<div data-id="restart-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 3;">
+<div data-id="restart-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 3;transform: rotate(45deg);">
 →
 </div>
-<div data-id="eval-box" style="background-color: #3498db; padding: 12px 20px; border-radius: 5px; text-align: center; font-weight: bold; grid-column: 3; grid-row: 3 / 6; align-self: center; margin-top: -35px;">
+<div data-id="eval-box" style="background-color: #3498db; padding: 12px 20px; border-radius: 5px; text-align: center; font-weight: bold; grid-column: 3; grid-row: 3 / 6 ; align-self: center; margin-top: -35px;">
 Spinup<br>Evaluation
 </div>
-<div data-id="eval-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 4; grid-row: 3 / 6; align-self: center;">
+<div data-id="eval-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 4; grid-row: 3 / 6 ; align-self: center;">
 →
 </div>
 <div data-id="metrics-box" style="background-color: #b7beba; padding: 12px 15px; border-radius: 5px; text-align: center; grid-column: 5; grid-row: 3 / 6; align-self: center;">
@@ -729,11 +765,13 @@ raw.npy
 <h2>Software engineering</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
+<div class="fragment">
 <h4 id="modular-generalizable"><strong>Modular &amp; Generalizable</strong></h4>
 <ul>
 <li>Reusable components across domains</li>
-<li>Extensible to new models (e.g., NEMO, <em>Oceananigans</em>) <br></li>
+<li>Extensible to new models (e.g., NEMO, <em>Oceananigans</em>)</li>
 </ul>
+</div>
 <div class="fragment">
 <h4 id="quality-standards"><strong>Quality &amp; Standards</strong></h4>
 <ul>
@@ -741,6 +779,9 @@ raw.npy
 <li>Data products adhere to <strong>FAIR</strong> <span class="citation" data-cites="fair2016">(see <a href="#/references" role="doc-biblioref" onclick="">Wilkinson et al. 2016</a>)</span></li>
 <li><strong>Collaborative Design</strong>: Bridging Science &amp; RSE</li>
 </ul>
+<div class="absolute" style="top: 50%; left: 50%; background-color: None; padding: 10px; border-radius: 8px; display: flex; align-items: center; justify-content: center; width :100px; height: 80px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+<p><img data-src="./images/logos/pytest.svg" height="140"></p>
+</div>
 </div>
 </div><div class="column" style="width:45%;">
 <!-- ![](./images/rse-collaboration-diagram.png){fig-align="center"} -->
@@ -792,14 +833,15 @@ raw.npy
           display:block!important;
       }</style></aside>
 <!-- =============================================================================== -->
-<!-- {{< include _main_content.qmd >}} -->
-<!-- =============================================================================== -->
 </section>
 <section id="conclusions" class="slide level2 smaller">
 <h2>Conclusions</h2>
 <h3 id="key-takeaways">Key Takeaways</h3>
 <ol type="1">
-<li><strong>Extend evaluation of ocean models</strong>: Evaluation of AI emulators must go beyond simple RMSE metrics.</li>
+<li><strong>Extend evaluation of ocean models</strong>: Evaluation of AI emulators must go beyond simple RMSE metrics.
+<ul>
+<li>Evaluation cannot be done in isolation of the equation resolving techniques.</li>
+</ul></li>
 <li><strong>Software enabled research</strong>: Research software engineering is a critical component of research that brings generalisability, extensibility and robustness to software products.</li>
 </ol>
 <p><br></p>

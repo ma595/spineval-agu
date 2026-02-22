@@ -2,7 +2,8 @@
 
 ### Key Takeaways
 
-1. **Extend evaluation of ocean models**: Evaluation of AI emulators must go beyond simple RMSE metrics.
+1. **Extend evaluation of ocean models**: Evaluation of AI emulators must go beyond simple RMSE metrics. 
+   - Evaluation cannot be done in isolation of the equation resolving techniques.
 2. **Software enabled research**: Research software engineering is a critical component of research that brings generalisability, extensibility and robustness to software products.
 
 <br>
