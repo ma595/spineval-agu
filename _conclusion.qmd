@@ -5,14 +5,12 @@
 ::: {.fragment}
 1. **Extend evaluation of ocean models**: 
    - Evaluation of AI emulators must go beyond simple RMSE metrics. 
-   - Evaluation cannot be done in isolation of the equation resolving techniques.
+   - Enable evaluation in conjunction with equation resolving techniques.
 :::
 ::: {.fragment}
 2. **Software enabled research**: 
-   - Research software engineering is a critical component of research 
-   - It brings generalisability, extensibility and robustness to software products.
+   - Research software engineering is a critical component of research bringing generalisability, extensibility and robustness to software products.
 :::
-<br>
 
 ::: {.fragment}
 ### Next Steps
@@ -20,3 +18,48 @@
 - Extend to other ocean models and AI emulators
 - Translation between different ocean checkpoint files 
 :::
+
+## Thanks for Listening {.smaller}
+
+:::: {.columns}
+
+::: {.column style="width:20%; font-size: 85%;"}
+Get in touch:
+:::
+::: {.column style="width: 40%; font-size: 85%;"}
+{{< fa pencil >}} \ Matt Archer
+w
+{{< fa solid globe >}} \ [ma595.github.io](https://ma595.github.io)
+
+{{< fa solid envelope >}} \ [ma595[AT]cam.ac.uk](mailto:ma595@cam.ac.uk)
+
+{{< fa solid envelope >}} \ [iccs[AT]cam.ac.uk](mailto:iccs@cam.ac.uk)
+
+{{< fa brands github >}} \ [ma595](https://github.com/ma595)
+
+:::
+
+::: {.column style="width: 40%; font-size: 85%;"}
+
+[{{< fa brands github >}}/ma595/spineval-agu - Slides](https://github.com/ma595/spineval-agu)
+
+{{< qrcode https://ma595.github.io/spineval-agu width=150 height=150 >}}
+:::
+
+\
+
+:::: {.columns}
+
+::: {.column style="width:60%;"}
+
+The ICCS received support from ![]( ./images/logos/schmidt_science.png ){height=2.4em style="margin: 0; vertical-align: -2%"}
+
+:::
+::: {.column style="width:40%; font-size: 85%;"}
+[{{< fa brands github >}}/m2lines/spinup-evaluation](https://github.com/m2lines/spinup-evaluation)
+
+{{< qrcode https://github.com/m2lines/spinup-evaluation width=150 height=150 >}}
+:::
+::::
+
+::::

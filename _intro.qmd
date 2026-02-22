@@ -51,6 +51,10 @@ The Institute of Computing for Climate Science
 
 ![]( ./images/iccs/BetterSoftwareBetterResearch.png){fig-align="center"}
 
+:::{.attribution}
+Figure from [software.ac.uk/](https://www.software.ac.uk/), See [here](https://www.software.ac.uk/publication/better-software-better-research) for more.
+:::
+
 ## NEMO/DINO ocean model
 
 
