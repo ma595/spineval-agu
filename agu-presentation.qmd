@@ -125,7 +125,7 @@ w
 
 {{< fa solid envelope >}} \ [ma595[AT]cam.ac.uk](mailto:ma595@cam.ac.uk)
 
-{{< fa solid envelope >}} \ [iccs[AT]cam.ac.uk](mailto:iccs@cam.ac.uk)e
+{{< fa solid envelope >}} \ [iccs[AT]cam.ac.uk](mailto:iccs@cam.ac.uk)
 
 {{< fa brands github >}} \ [ma595](https://github.com/ma595)
 
