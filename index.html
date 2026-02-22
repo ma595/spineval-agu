@@ -156,12 +156,12 @@
   <link href="agu-presentation_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <style>
   #title-slide .title {
-    font-size: 1.25em;
+    font-size: 1.25em
     color: #fffff;
   }
   #title-slide .subtitle {
     font-size: 1.0em;
-    color: #fffff;
+    color: #fffae6;
     margin-top: 10px;
     margin-bottom: 20px
   }
@@ -189,6 +189,9 @@
     font-size: 0.8em;
     color: #fffafa;
     margin-top: 1.5em;
+  }
+  .reveal .slide-logo {
+    max-height: 50px !important;
   }
   </style>
 </head>
@@ -232,13 +235,34 @@ Julie Deshayes
 </section>
 <section id="spinup-evaluation" class="slide level2 smaller">
 <h2>Spinup-evaluation</h2>
+<h3 id="accelerating-spinup">Accelerating Spinup</h3>
 <ul>
-<li>Spinup is slow. Thousands of simulation years to achieve equilibrium state. Temperature and salinity in deep ocean is slow to converge.</li>
-<li>Machine learning emulators exist but how do we know if they are correct? Errors can easily propagate - is RMSE MAE sufficient?</li>
-<li>Our focus is on the physical evaluation of ocean models (both equation resolving and AI emulators)</li>
+<li>Ocean spinup is <code>slow</code>. Thousands of simulation years to achieve equilibrium state.</li>
+<li>Many machine learning emulators exist for ocean modelling that are well validated:
+<ul>
+<li>How do we know if they are correct?</li>
+<li>Errors can easily propagate during rollout.</li>
+</ul></li>
+<li>Our focus is on the physical evaluation of ocean models:
+<ul>
+<li>Both equation resolving, pure AI emulators and hybrid approaches.</li>
+</ul></li>
 <li>Implement sustainable software that is easy to extend, robust and reusable.</li>
-<li>Generalise to be a evaluation benchmark for Climate c.f. Climate-Bench.</li>
+<li>Generalised evaluation benchmark for Climate.</li>
 </ul>
+<aside class="notes">
+<p>Temperature and salinity in deep ocean is slow to converge. Is RMSE sufficient?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="the-iccs" class="slide level2 smaller">
 <h2>The <a href="https://iccs.cam.ac.uk/">ICCS</a><sup>1</sup></h2>
@@ -298,29 +322,105 @@ Julie Deshayes
 <section id="is-rmse-enough" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Is RMSE enough?</h2>
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-<div style="display: flex; align-items: center; justify-content: center; gap: 2px;">
-<p><img data-src="./images/gen1_surface.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
-<p><img data-src="./images/gen4_surface.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
-<p><img data-src="./images/reference_surface.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
+<div style="display: flex; align-items: flex-start; justify-content: center; gap: 10px;">
+<div style="text-align: center;">
+<img data-src="./images/gen1_surface.png" style="background-color: white; padding: 2px;;width:100.0%">
+<p style="font-size: 0.7em; margin-top: 5px;">
+Unconstrained
+</p>
+</div>
+<div style="text-align: center;">
+<img data-src="./images/gen4_surface.png" style="background-color: white; padding: 2px;;width:100.0%">
+<p style="font-size: 0.7em; margin-top: 5px;">
+<span style="color: #2ecc71;"><i class="fa-solid fa-square-check" aria-label="square-check"></i></span> Constrained
+</p>
+</div>
+<div style="text-align: center;">
+<img data-src="./images/reference_surface.png" style="background-color: white; padding: 2px;;width:100.0%">
+<p style="font-size: 0.7em; margin-top: 5px;">
+Reference
+</p>
+</div>
 </div>
 <p><img data-src="./images/colorbar_density.png" style="padding: 5px; margin-top: 5px;;width:50.0%"></p>
 </div>
+<div class="absolute" style="bottom: 15%; right: 5%; font-size: 0.6em;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Unconstrained</th>
+<th style="text-align: center;">Constrained</th>
+<th style="text-align: center;">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RMSE</td>
+<td style="text-align: center;">1.0</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="absolute" style="font-size: 0.6em; bottom: 3%; left: 20%; transform: translateX(-40%);">
-<p>Evaluation that works even when resolution changes?</p>
+<p>Evaluate even when resolution changes.</p>
+</div>
+<div class="attribution">
+<p><span class="citation" data-cites="meunier2025">Meunier et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, <span class="citation" data-cites="gorce2025">Gorce et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></p>
 </div>
 </section>
 <section id="is-rmse-enough-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Is RMSE enough?</h2>
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-<div style="display: flex; align-items: center; justify-content: center; gap: 2px;">
-<p><img data-src="./images/gen1_vertical.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
-<p><img data-src="./images/gen4_vertical.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
-<p><img data-src="./images/reference_vertical.png" style="background-color: white; padding: 2px;;width:70.0%"></p>
+<div style="display: flex; align-items: flex-start; justify-content: center; gap: 10px;">
+<div style="text-align: center;">
+<img data-src="./images/gen1_vertical.png" style="background-color: white; padding: 2px;;width:50.0%">
+<p style="font-size: 0.7em; margin-top: 5px;">
+Unconstrained
+</p>
+</div>
+<div style="text-align: center;">
+<img data-src="./images/gen4_vertical.png" style="background-color: white; padding: 2px;;width:50.0%">
+<p style="font-size: 0.7em; margin-top: 5px;">
+<span style="color: #2ecc71;"><i class="fa-solid fa-square-check" aria-label="square-check"></i></span> Constrained
+</p>
+</div>
+<div style="text-align: center;">
+<img data-src="./images/reference_vertical.png" style="background-color: white; padding: 2px;;width:50.0%">
+<p style="font-size: 0.7em; margin-top: 5px;">
+Reference
+</p>
+</div>
+</div>
+<div class="absolute" style="bottom: 15%; right: 5%; font-size: 0.6em;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Unconstrained</th>
+<th style="text-align: center;">Constrained</th>
+<th style="text-align: center;">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RMSE</td>
+<td style="text-align: center;">1.0</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">0.0</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p><img data-src="./images/colorbar_density.png" style="padding: 5px; margin-top: 5px;;width:50.0%"></p>
 </div>
 <div class="absolute" style="font-size: 0.6em; bottom: 3%; left: 20%; transform: translateX(-40%);">
-<p>Evaluation that works even when resolution changes?</p>
+<p>Evaluate even when resolution changes.</p>
+</div>
+<div class="attribution">
+<p><span class="citation" data-cites="meunier2025">Meunier et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, <span class="citation" data-cites="gorce2025">Gorce et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></p>
 </div>
 <!-- ::: {.column style="width:20%;"} -->
 <!-- 
@@ -353,40 +453,51 @@ Julie Deshayes
 <div class="line" style="top: 75%;">
 
 </div>
+<!-- QR code in top left -->
+<div class="fragment" data-fragment-index="0" style="position: absolute; top: 1%; right: 1%; z-index: 10; font-size: 0.5em; text-align: center; width: 150px;">
+<div id="" class="qrcode"></div>
+<script type="text/javascript">
+(function() {
+  var script = document.currentScript;
+  var qrcode = script.previousElementSibling;
+  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":128,"qr_width":"100","text":"https://github.com/m2lines/nemo-spinup-forecast","width":128});
+  script.remove();
+})();
+</script>
+    
+<p><a href="https://github.com/m2lines/nemo-spinup-forecast"><i class="fa-brands fa-github" aria-label="github"></i>/m2lines/nemo-spinup-forecast</a></p>
+</div>
 <!-- Curved arrow along left side -->
-<!-- <svg class="fragment" data-fragment-index="2" style="position: absolute; left: 0; top: 10%; width: 150px; height: 80%; z-index: 0;" viewBox="0 0 150 500">
-  <path d="M 120 0 Q 20 250, 120 500" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead-left)" opacity="0.7"/>
-  <defs>
-    <marker id="arrowhead-left" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
-    </marker>
-  </defs>
-</svg> -->
-<svg class="fragment" data-fragment-index="2" style="position: absolute; right: 0; top: 10%; width: 150px; height: 80%; z-index: 0;" viewbox="0 0 150 500">
+<svg class="fragment" data-fragment-index="3" style="position: absolute; left: -10%; top: 10%; width: 150px; height: 80%; z-index: 0;" viewbox="0 0 150 500">
+<path d="M 120 0 Q 20 225, 120 450" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead-left)" opacity="0.7"></path> <defs> <marker id="arrowhead-left" markerwidth="10" markerheight="7" refx="10" refy="3.5" orient="auto"> <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"></polygon> </marker> </defs>
+</svg>
+<svg class="fragment" data-fragment-index="2" style="position: absolute; right: 20%; top: 10%; width: 150px; height: 80%; z-index: 0;" viewbox="0 0 150 500">
 <path d="M 30 0 Q 130 250, 30 500" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead-right)" opacity="0.7"></path> <defs> <marker id="arrowhead-right" markerwidth="10" markerheight="7" refx="10" refy="3.5" orient="auto"> <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"></polygon> </marker> </defs>
 </svg>
-<div class="box-row fragment" data-fragment-index="0" style="top: 0; justify-content: flex-end;">
+<div class="box-row fragment" data-fragment-index="0" style="top: 0; right: 17%; justify-content: flex-end;">
 <div class="label" style="text-align: left;">
 <p>AI emulator or traditional time integrator of physical quantities.</p>
 </div>
 <div class="box" style="background-color: #2ecc71;">
-<p>Emulator</p>
+<p>AI Emulator <br> Hybrid</p>
 </div>
 </div>
-<div class="box-row fragment" data-fragment-index="0" style="top: 0; left: 10%;">
+<div class="box-row fragment" data-fragment-index="0" style="top: 0; left: -5%;">
 <div class="label" style="text-align: left;">
 
 </div>
 <div class="box" style="background-color: #2ecc71;">
-<p>Ocean Model</p>
+<p>Ocean <br> Model</p>
 </div>
 </div>
-<svg class="fragment" data-fragment-index="1" style="position: absolute; top: 55px; left: 150px; width: 40px; height: 330px; z-index: 1;" viewbox="0 0 40 300">
+<!-- NEMO logo to the left of Ocean Model box -->
+<p><img data-src="./images/logos/NEMO_logo.png" class="fragment" style="position: absolute; top: 20%; left: 15%; width: 80px; background-color: white; padding: 3px; z-index: 10;" data-fragment-index="0"></p>
+<svg class="fragment" data-fragment-index="1" style="position: absolute; top: 70px; left: 50px; width: 40px; height: 330px; z-index: 1;" viewbox="0 0 40 300">
 <path d="M 20 80 L 20 240" stroke="#888" stroke-width="2" fill="none" marker-end="url(#arrowhead)"></path> <defs> <marker id="arrowhead" markerwidth="10" markerheight="7" refx="10" refy="3.5" orient="auto"> <polygon points="0 0, 10 3.5, 0 7" fill="#888"></polygon> </marker> </defs>
 </svg>
-<div class="box-row fragment" data-fragment-index="1" style="bottom: -40px; left: 10%; justify-content: flex-start;">
+<div class="box-row fragment" data-fragment-index="1" style="bottom: -40px; left: -5%; justify-content: flex-start;">
 <div class="box" style="background-color: #3498db;">
-<p>Physical-Evaluation</p>
+<p>Physical Evaluation</p>
 </div>
 <div class="label" style="text-align: left;">
 <ul>
@@ -394,59 +505,63 @@ Julie Deshayes
 </ul>
 </div>
 </div>
-<div class="box-row fragment" data-fragment-index="2" style="top: 55%; left: 30%; transform: translateY(-50%);">
+<div class="box-row fragment" data-fragment-index="2" style="top: 55%; left: 14%; transform: translateY(-50%);">
 <div class="box" style="background-color: #e74c3c;">
 <p>Translator<br> Toolbox</p>
 </div>
 <div class="label">
 <ul>
 <li>Create <code>restart</code> state from AI emulator<br></li>
-<li><code>Convert</code> states between different models</li>
+<li><code>Convert</code> states between different models.</li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<section id="physical-evaluation" class="slide level2">
+<section id="physical-evaluation" class="slide level2 smaller">
 <h2>Physical evaluation</h2>
-<div style="font-size: 0.6em;">
+<div class="columns" style="align-items: flex-start;">
+<div class="column" style="width:70%;">
+<p><img data-src="./images/metrics.png" style="background-color: white; padding: 5px;;width:90.0%"></p>
+<p style="font-size: 0.5em; text-align: center;">
+Figure from <em>Learning to generate physical ocean states. <span class="citation" data-cites="meunier2025">Meunier et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></em>
+</p>
+</div><div class="column" style="width:30%;">
+<div style="margin-top: 100px;">
 <ul>
-<li>Temperature and salinity integrals over physically meaningful geometries relevant to assessing spinup process.</li>
+<li>Relevant for measuring equilibrium progress.
+<ul>
+<li>No ground truth.</li>
+</ul></li>
+<li>Framework to easily add <strong>new metrics</strong>.</li>
 </ul>
 </div>
-
-<!-- ::: {.attribution}
-@meunier2025
-::: -->
-<img data-src="./images/metrics.png" style="width:70.0%" class="r-stretch quarto-figure-center"><p class="caption">Figure from <em>Learning to generate physical ocean states: Towards hybrid climate modeling</em>. <span class="citation" data-cites="meunier2025">Meunier et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></p></section>
-<section id="developer-highlights" class="slide level2">
-<h2>Developer highlights</h2>
-<h3 id="spinup-evaluation-1">Spinup-evaluation</h3>
+</div></div>
+</section>
+<section id="developer-highlights" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Developer highlights</h2>
+<h3 id="spinup-benchmark">Spinup-benchmark</h3>
 <div class="columns" style="gap: 5%;">
 <div class="column" style="width:55%;">
 <div style="font-size: 0.65em;">
 <ul>
-<li>Compute physical metrics
-<ul>
-<li>no ground truth</li>
-</ul></li>
 <li>Execution modes:
 <ul>
-<li>Evaluate ocean emulators at <code>end time</code> only.</li>
-<li>Evaluate ocean emulators during roll out over <code>experiment duration</code> and check convergence of ocean dynamics.</li>
-<li><code>Correct</code> emulator predictions by feeding state back into ocean model and then evaluate.</li>
-<li>Use as part of AI emulation <code>optimisation</code> procedure (i.e.&nbsp;loss function).</li>
+<li>Evaluate ocean emulators at <code>end</code> time only.</li>
+<li>Evaluate ocean emulators during <code>roll-out</code> over experiment duration.</li>
+<li>Evaluate numerical model result given emulated state. i.e.&nbsp;‘hybrid’ approach.</li>
+<li>Use as part of AI emulation optimisation procedure (e.g.&nbsp;<code>loss</code> function).</li>
 </ul></li>
 </ul>
 </div>
 </div><div class="column" style="width:40%; font-size: 65%; padding-left: 30px;">
-<p><a href="https://github.com/vopikamm/DINO"><i class="fa-brands fa-github" aria-label="github"></i>/m2lines/spinup-evaluation</a></p>
+<p><a href="https://github.com/m2lines/nemo-spinup-evaluation"><i class="fa-brands fa-github" aria-label="github"></i>/m2lines/spinup-evaluation</a></p>
 <div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
   var qrcode = script.previousElementSibling;
-  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":"150","text":"https://github.com/m2lines/spinup-evaluation","width":"150"});
+  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":"100","text":"https://github.com/m2lines/spinup-evaluation","width":"100"});
   script.remove();
 })();
 </script>
@@ -454,26 +569,61 @@ Julie Deshayes
 <p>version <code>0.2.1</code></p>
 </div></div>
 </section>
-<section id="developer-highlights-1" class="slide level2">
-<h2>Developer highlights</h2>
-<h3 id="spinup-evaluation-2">Spinup-evaluation</h3>
+<section id="developer-highlights-1" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Developer highlights</h2>
+<h3 id="spinup-evaluation-1">Spinup-evaluation (1)</h3>
+<ul>
+<li><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Computes metrics on instantaneous (<code>restart</code>) and time history (<code>grid</code>) output files
+<ul>
+<li>compute comparisons if reference provided</li>
+</ul></li>
+<li><i class="fa-solid fa-diagram-project" aria-label="diagram-project"></i> Strict mapping of ocean variables to restart and output variable names</li>
+</ul>
 <div class="columns" style="gap: 5%;">
-<div class="column" style="width:55%;">
-<div style="font-size: 0.65em;">
-<ul>
-<li>Computes metrics on restart and grid output files and comparisons if reference provided</li>
-<li>Strict mapping of ocean variables to restart and output variable names</li>
-<li>Relies on utilising spinup-restart/translator to massage outputs into compatible format and incorporate modelling assumptions.</li>
-</ul>
+<div class="column" style="width:65%;">
+<div style="display: grid; grid-template-columns: 120px 40px 180px 40px 140px; align-items: center; justify-content: center; margin-top: 25px; font-size: 0.6em; row-gap: 5px;">
+<div data-id="ref-box" style="background-color: #9b59b6; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 3; grid-row: 1;">
+reference files
 </div>
-</div><div class="column" style="width:40%; font-size: 65%; padding-left: 30px;">
-<p><a href="https://github.com/vopikamm/DINO"><i class="fa-brands fa-github" aria-label="github"></i>/m2lines/spinup-evaluation</a></p>
+<div data-id="ref-arrow" style="color: #fff; font-size: 2em; text-align: center; grid-column: 3; grid-row: 2; margin-bottom: -20px;">
+↓
+</div>
+<div data-id="restart-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 3;">
+restart.nc
+</div>
+<div data-id="restart-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 3;">
+→
+</div>
+<div data-id="eval-box" style="background-color: #3498db; padding: 12px 20px; border-radius: 5px; text-align: center; font-weight: bold; grid-column: 3; grid-row: 3 / 6; align-self: center; margin-top: -35px;">
+Spinup<br>Evaluation
+</div>
+<div data-id="eval-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 4; grid-row: 3 / 6; align-self: center;">
+→
+</div>
+<div data-id="metrics-box" style="background-color: #b7beba; padding: 12px 15px; border-radius: 5px; text-align: center; grid-column: 5; grid-row: 3 / 6; align-self: center;">
+metrics.csv
+</div>
+<div data-id="output-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 4;">
+output.nc
+</div>
+<div data-id="output-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 4;">
+→
+</div>
+<div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">
+mesh.nc
+</div>
+<div data-id="mesh-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 5;">
+→
+</div>
+</div>
+</div><div class="column" style="width:25%; font-size: 0.5em; padding-left: 20px;">
+<p><a href="https://github.com/m2lines/nemo-spinup-evaluation"><i class="fa-brands fa-github" aria-label="github"></i>/m2lines/spinup-evaluation</a></p>
 <div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
   var qrcode = script.previousElementSibling;
-  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":"150","text":"https://github.com/m2lines/spinup-evaluation","width":"150"});
+  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":"100","text":"https://github.com/m2lines/spinup-evaluation","width":"100"});
   script.remove();
 })();
 </script>
@@ -481,20 +631,82 @@ Julie Deshayes
 <p>version <code>0.2.1</code></p>
 </div></div>
 </section>
-<section id="developer-highlights-2" class="slide level2">
-<h2>Developer highlights</h2>
-<h3 class="smaller" id="restarttranslator">Restart/translator</h3>
+<section id="developer-highlights-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Developer highlights</h2>
+<h3 class="smaller" id="restarttranslator-2">Restart/translator (2)</h3>
 <div style="font-size: 0.65em;">
 <ul>
-<li>Take an emulator state and convert to NEMO compatible restart file</li>
-<li>Regrid; upscale, downscale resolution;</li>
-<li>Apply other physical assumptions:
-<ul>
-<li>geostrophic velocities</li>
-</ul></li>
-<li>Translate between other ocean models: <span class="math display">\[NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM6\]</span><br>
-</li>
+<li>Take an emulator state and convert to NEMO compatible <code>restart.nc</code> file</li>
+<li><em>Regrid</em>, <em>upscale</em>, <em>downscale</em> resolution;</li>
+<li>Encode other physical assumptions (geostrophic velocities) <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) --></li>
 </ul>
+</div>
+<div style="display: grid; grid-template-columns: 120px 40px 180px 40px 180px 40px 140px; align-items: center; justify-content: center; margin-top: 10px; font-size: 0.6em; row-gap: 2px;">
+<div data-id="ref-box" style="background-color: #9b59b6; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 3; grid-row: 2;">
+reference files
+</div>
+<div data-id="ref-arrow" style="color: #fff; font-size: 2em; text-align: center; grid-column: 3; grid-row: 3; line-height: 0.5;">
+↓
+</div>
+<div data-id="restart-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 3;">
+restart.nc
+</div>
+<div data-id="restart-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 3; transform: rotate(45deg);">
+→
+</div>
+<div data-id="restart-proc-box" style="background-color: #e74c3c; padding: 12px 20px; border-radius: 5px; text-align: center; font-weight: bold; grid-column: 3; grid-row: 3 / 7; align-self: center;">
+Spinup<br>Translator
+</div>
+<div data-id="restart-proc-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 4; grid-row: 3 / 7; align-self: center;">
+→
+</div>
+<div data-id="eval-box" style="background-color: #3498db; padding: 12px 20px; border-radius: 5px; text-align: center; font-weight: bold; grid-column: 5; grid-row: 3 / 7; align-self: center;">
+Spinup<br>Evaluation
+</div>
+<div data-id="eval-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 6; grid-row: 3 / 7; align-self: center;">
+→
+</div>
+<div data-id="metrics-box" style="background-color: #b7beba; padding: 12px 15px; border-radius: 5px; text-align: center; grid-column: 7; grid-row: 3 / 7; align-self: center;">
+metrics.csv
+</div>
+<div data-id="output-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 4;">
+output.nc
+</div>
+<div data-id="output-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 4;">
+→
+</div>
+<div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">
+mesh.nc
+</div>
+<div data-id="mesh-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 5;">
+→
+</div>
+<div data-id="raw-box" style="background-color: #f1c40f; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 6;">
+raw.npy
+</div>
+<div data-id="raw-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 6; transform: rotate(-45deg);">
+→
+</div>
+</div>
+<p><!-- - to establish structural uncertainty between different ocean models.  --></p>
+</section>
+<section id="developer-highlights-3" class="slide level2">
+<h2>Developer highlights</h2>
+<h3 class="smaller" id="restarttranslator-2-1">Restart/translator (2)</h3>
+<div style="font-size: 0.65em;">
+<ul>
+<li>Take an emulator state and convert to NEMO compatible <code>restart.nc</code> file</li>
+<li><em>Regrid</em>, <em>upscale</em>, <em>downscale</em> resolution;</li>
+<li>Encode other physical assumptions (geostrophic velocities)</li>
+<li>Translate between other ocean model restart files (in progress..) <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) --></li>
+</ul>
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 15px; margin-top: 50px;">
+<p><img src="./images/logos/NEMO_logo.png" style="height: 60px; filter: brightness(0) invert(1);" alt="NEMO"></p>
+<p><span style="color: #2ecc71; font-size: 1.5em;"><i class="fa-solid fa-arrow-right-arrow-left" aria-label="arrow-right-arrow-left"></i></span></p>
+<p><img src="./images/logos/oceananigans.png" style="height: 60px;" alt="Oceananigans"></p>
+<p><span style="color: #2ecc71; font-size: 1.5em;"><i class="fa-solid fa-arrow-right-arrow-left" aria-label="arrow-right-arrow-left"></i></span></p>
+<p><img src="./images/logos/MOM6.png" style="height: 60px;" alt="MOM6"></p>
+</div>
 </div>
 <p><!-- - to establish structural uncertainty between different ocean models.  --></p>
 </section>
@@ -505,18 +717,21 @@ Julie Deshayes
 <h4 id="modular-generalizable"><strong>Modular &amp; Generalizable</strong></h4>
 <ul>
 <li>Reusable components across domains</li>
-<li>Extensible to new models (e.g., NEMO, MITgcm)</li>
-<li>Agnostic to file formats &amp; problem sets</li>
+<li>Extensible to new models (e.g., NEMO, <em>Oceananigans</em>)</li>
 </ul>
 <p><br></p>
+<div class="fragment">
 <h4 id="quality-standards"><strong>Quality &amp; Standards</strong></h4>
 <ul>
+<li>Robust testing (Unit, Integration, Coverage) with CI</li>
+<li>Examples</li>
 <li>Data products adhere to <strong>FAIR</strong> <span class="citation" data-cites="fair2016">(see <a href="#/references" role="doc-biblioref" onclick="">Wilkinson et al. 2016</a>)</span></li>
-<li>Robust testing (Unit, Integration, Coverage)</li>
 <li><strong>Collaborative Design</strong>: Bridging Science &amp; RSE</li>
 </ul>
+</div>
 </div><div class="column" style="width:45%;">
 <!-- ![](./images/rse-collaboration-diagram.png){fig-align="center"} -->
+<div class="fragment">
 <div class="cell" data-reveal="true" data-fig-width="4" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -534,6 +749,8 @@ Julie Deshayes
     class A,B default;
     class C bridge;
     class D highlight;
+    
+    linkStyle default stroke:#fff,stroke-width:2px;
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -543,6 +760,7 @@ Julie Deshayes
 <blockquote>
 <p>Eliminating silos through cross-disciplinary partnership.</p>
 </blockquote>
+</div>
 </div></div>
 <aside class="notes">
 <ul>
@@ -611,9 +829,9 @@ Julie Deshayes
 <div class="column" style="width:20%; font-size: 85%;">
 <p>Get in touch:</p>
 </div><div class="column" style="width: 40%; font-size: 85%;">
-<p><i class="fa-solid fa-pencil" aria-label="pencil"></i> &nbsp;Matt Archer</p>
-<p><i class="fa-solid fa-globe" aria-label="globe"></i> &nbsp;<a href="https://ma595.github.io">ma595.github.io</a></p>
+<p><i class="fa-solid fa-pencil" aria-label="pencil"></i> &nbsp;Matt Archer w <i class="fa-solid fa-globe" aria-label="globe"></i> &nbsp;<a href="https://ma595.github.io">ma595.github.io</a></p>
 <p><i class="fa-solid fa-envelope" aria-label="envelope"></i> &nbsp;<a href="mailto:ma595@cam.ac.uk">ma595[AT]cam.ac.uk</a></p>
+<p><i class="fa-solid fa-envelope" aria-label="envelope"></i> &nbsp;<a href="mailto:iccs@cam.ac.uk">iccs[AT]cam.ac.uk</a>e</p>
 <p><i class="fa-brands fa-github" aria-label="github"></i> &nbsp;<a href="https://github.com/ma595">ma595</a></p>
 </div><div class="column" style="width: 40%; font-size: 85%;">
 <p><a href="https://github.com/ma595/spineval-agu"><i class="fa-brands fa-github" aria-label="github"></i>/ma595/spineval-agu - Slides</a></p>
@@ -650,6 +868,9 @@ Julie Deshayes
 <h2>References</h2>
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-gorce2025" class="csl-entry" role="listitem">
+Gorce, Blandine, Luther Ollier, David Kamm, and Etienne Meunier. 2025. <span>“Physically Consistent Sampling for Ocean Model Initialization.”</span> In <em>Advances in Neural Information Processing Systems</em>. Vol. 38. <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/126936">https://neurips.cc/virtual/2025/loc/san-diego/poster/126936</a>.
+</div>
 <div id="ref-kamm2025" class="csl-entry" role="listitem">
 Kamm, D., J. Deshayes, and G. Madec. 2025. <span>“DINO: A Diabatic Model of Pole-to-Pole Ocean Dynamics to Assess Subgrid Parameterizations Across Horizontal Scales.”</span> <em>EGUsphere</em> 2025: 1–26. <a href="https://doi.org/10.5194/egusphere-2025-1100">https://doi.org/10.5194/egusphere-2025-1100</a>.
 </div>
