@@ -1,18 +1,35 @@
 ## Spinup-evaluation {.smaller}
 
 ### Accelerating Spinup 
-- Ocean spinup is `slow`. Thousands of simulation years to achieve equilibrium state. 
+
+::: {.fragment fragment-index=1}
+- Ocean spinup is `slow`. Upwards of a 1000 years to achieve equilibrium state!
+:::
+
+::: {.fragment .fade-in-then-out fragment-index=1 style="position: absolute; width: 60%;"}
+![](./images/sup.png){width="60%" style="background-color: white; padding: 5px;"}
+:::
+
+::: {.fragment fragment-index=2}
 - Many machine learning emulators exist for ocean modelling that are well validated:
-  - How do we know if they are correct? {.nonincremental}
+  - How do we know if they are correct *physically*? 
   - Errors can easily propagate during rollout.
-- Our focus is on the physical evaluation of ocean models:
-  - Both [equation resolving]{style="color: red;"}, pure [AI emulators]{style="color: green"} and [hybrid]{style="color: brown"} approaches.
+:::
+
+::: {.fragment}
+- Our focus is on the physical `evaluation` of ocean models:
+  - Including [equation resolving]{style="color: red;"}, pure [AI emulators]{style="color: green"} and [hybrid]{style="color: brown"} approaches.
+:::
+
+::: {.fragment}
 - Implement sustainable software that is easy to extend, robust and reusable. 
   - Generalised evaluation benchmark for climate.
+:::
 
 ::: {.notes}
 Temperature and salinity in deep ocean is slow to converge. 
 Is RMSE sufficient?
+tend towards averaged state due to RMSE
 I've emphasized hybrid as well here, because it's likely that ML will not be able to get you completely there. Tools to reshape data from emulators to climate model
 :::
 
@@ -279,8 +296,8 @@ Translator<br> Toolbox
 :::
 
 
-## Physical evaluation {.smaller}
-
+## Physical evaluation {transition="fade" .smaller}
+### Metrics
 :::: {.columns style="align-items: flex-start;"}
 
 ::: {.column width="70%"}
@@ -293,9 +310,9 @@ Figure from *Learning to generate physical ocean states. @meunier2025*
 
 ::: {.column width="30%"}
 <div style="margin-top: 100px;">
-* Relevant for measuring equilibrium progress.
-  * No ground truth.
-* Framework to easily add **new metrics**. 
+- Metrics relevant for measuring equilibrium progress.
+  - *No ground truth*.
+- Framework to easily add **new metrics**. 
 </div>
 :::
 
@@ -436,14 +453,11 @@ version `0.2.1`
 #### **Modular & Generalizable**
 - Reusable components across domains
 - Extensible to new models (e.g., NEMO, *Oceananigans*)
-
 <br/>
-
 
 ::: {.fragment}
 #### **Quality & Standards**
-- Robust testing (Unit, Integration, Coverage) with CI
-- Examples 
+- Robust testing (Unit, Integration, Coverage) with CI and well documented end-to-end examples (hybrid)
 - Data products adhere to **FAIR** [see @fair2016]
 - **Collaborative Design**: Bridging Science & RSE
 :::
