@@ -32,12 +32,12 @@ include-in-header:
   - text: |
       <style>
       #title-slide .title {
-        font-size: 1.25em;
+        font-size: 1.25em
         color: #fffff;
       }
       #title-slide .subtitle {
         font-size: 1.0em;
-        color: #fffff;
+        color: #fffae6;
         margin-top: 10px;
         margin-bottom: 20px
       }
@@ -65,6 +65,9 @@ include-in-header:
         font-size: 0.8em;
         color: #fffafa;
         margin-top: 1.5em;
+      }
+      .reveal .slide-logo {
+        max-height: 50px !important;
       }
       </style>
 ---
@@ -117,10 +120,12 @@ Get in touch:
 :::
 ::: {.column style="width: 40%; font-size: 85%;"}
 {{< fa pencil >}} \ Matt Archer
-
+w
 {{< fa solid globe >}} \ [ma595.github.io](https://ma595.github.io)
 
 {{< fa solid envelope >}} \ [ma595[AT]cam.ac.uk](mailto:ma595@cam.ac.uk)
+
+{{< fa solid envelope >}} \ [iccs[AT]cam.ac.uk](mailto:iccs@cam.ac.uk)e
 
 {{< fa brands github >}} \ [ma595](https://github.com/ma595)
 
