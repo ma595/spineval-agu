@@ -1,18 +1,19 @@
 ## Spinup-evaluation {.smaller}
 
-### Accelerating Spinup
+### Accelerating Spinup 
 - Ocean spinup is `slow`. Thousands of simulation years to achieve equilibrium state. 
 - Many machine learning emulators exist for ocean modelling that are well validated:
-  - How do we know if they are correct? 
+  - How do we know if they are correct? {.nonincremental}
   - Errors can easily propagate during rollout.
 - Our focus is on the physical evaluation of ocean models:
-  - Both equation resolving, pure AI emulators and hybrid approaches.
+  - Both [equation resolving]{style="color: red;"}, pure [AI emulators]{style="color: green"} and [hybrid]{style="color: brown"} approaches.
 - Implement sustainable software that is easy to extend, robust and reusable. 
-- Generalised evaluation benchmark for Climate.
+  - Generalised evaluation benchmark for climate.
 
 ::: {.notes}
 Temperature and salinity in deep ocean is slow to converge. 
 Is RMSE sufficient?
+I've emphasized hybrid as well here, because it's likely that ML will not be able to get you completely there. Tools to reshape data from emulators to climate model
 :::
 
 ## The [ICCS](https://iccs.cam.ac.uk/)^[See <https://iccs.cam.ac.uk/> for more details] {.smaller}
@@ -21,12 +22,12 @@ The Institute of Computing for Climate Science
 
 * Domain-specific RSE group based at the University of Cambridge
 * Embedded support to several international climate science projects 
-
 ![]( ./images/iccs/ICCS_streams.png){fig-align="center"}
 
 ::: {.notes}
-My background in this is ML and numerical modelling on HPC. 
 :::
+
+
 
 #
 

@@ -240,18 +240,20 @@ Julie Deshayes
 <li>Ocean spinup is <code>slow</code>. Thousands of simulation years to achieve equilibrium state.</li>
 <li>Many machine learning emulators exist for ocean modelling that are well validated:
 <ul>
-<li>How do we know if they are correct?</li>
+<li>How do we know if they are correct? {.nonincremental}</li>
 <li>Errors can easily propagate during rollout.</li>
 </ul></li>
 <li>Our focus is on the physical evaluation of ocean models:
 <ul>
-<li>Both equation resolving, pure AI emulators and hybrid approaches.</li>
+<li>Both <span style="color: red;">equation resolving</span>, pure <span style="color: green">AI emulators</span> and <span style="color: brown">hybrid</span> approaches.</li>
 </ul></li>
-<li>Implement sustainable software that is easy to extend, robust and reusable.</li>
-<li>Generalised evaluation benchmark for Climate.</li>
+<li>Implement sustainable software that is easy to extend, robust and reusable.
+<ul>
+<li>Generalised evaluation benchmark for climate.</li>
+</ul></li>
 </ul>
 <aside class="notes">
-<p>Temperature and salinity in deep ocean is slow to converge. Is RMSE sufficient?</p>
+<p>Temperature and salinity in deep ocean is slow to converge. Is RMSE sufficient? I’ve emphasized hybrid as well here, because it’s likely that ML will not be able to get you completely there. Tools to reshape data from emulators to climate model</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -269,15 +271,10 @@ Julie Deshayes
 <p>The Institute of Computing for Climate Science</p>
 <ul>
 <li>Domain-specific RSE group based at the University of Cambridge</li>
-<li>Embedded support to several international climate science projects</li>
+<li>Embedded support to several international climate science projects <img data-src="./images/iccs/ICCS_streams.png" class="quarto-figure quarto-figure-center"></li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./images/iccs/ICCS_streams.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
 <aside class="notes">
-<p>My background in this is ML and numerical modelling on HPC.</p>
+
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
