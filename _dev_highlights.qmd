@@ -40,7 +40,7 @@ version `0.2.1`
 <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) -->
 :::
 
-
+:::{.fragment .fade-out fragment-index=1}
 <div style="display: grid; grid-template-columns: 120px 40px 180px 40px 180px 40px 140px; align-items: center; justify-content: center; margin-top: 10px; font-size: 0.6em; row-gap: 2px;">
   <div data-id="ref-box" style="background-color: #9b59b6; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 3; grid-row: 2;">reference files</div>
   <div data-id="ref-arrow" style="color: #fff; font-size: 2em; text-align: center; grid-column: 3; grid-row: 3; line-height: 0.5;">↓</div>
@@ -58,21 +58,12 @@ version `0.2.1`
   <div data-id="raw-box" style="background-color: #f1c40f; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 6;">raw.npy</div>
   <div data-id="raw-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 6; transform: rotate(-45deg);">→</div>
 </div>
-
+:::
 
   <!-- - to establish structural uncertainty between different ocean models.  -->
 
 
-## Developer highlights
-### Restart/translator (2) {.smaller}
-
-::: {style="font-size: 0.65em;"}
-- Take an emulator state and convert to NEMO compatible `restart.nc` file
-- *Regrid*, *upscale*, *downscale* resolution;
-- Encode other physical assumptions (geostrophic velocities)
-- Translate between other ocean model restart files (in progress..) 
-<!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) -->
-
+:::{.fragment .fade-in fragment-index=1 .absolute top="50%" left="10%"}
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 15px; margin-top: 50px;">
   
   <img src="./images/logos/NEMO_logo.png" style="height: 60px; filter: brightness(0) invert(1);" alt="NEMO">
@@ -88,8 +79,13 @@ version `0.2.1`
 </div>
 :::
 
+::: {.fragment fragment-index=1 style="font-size: 0.65em;"}
+ Translate between other ocean model restart files (in progress..)
+:::
 
-  <!-- - to establish structural uncertainty between different ocean models.  -->
+::: {.notes}
+  - to establish structural uncertainty between different ocean models. 
+:::
 
 
 

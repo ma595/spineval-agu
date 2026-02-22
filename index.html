@@ -696,6 +696,7 @@ mesh.nc
 <li>Encode other physical assumptions (geostrophic velocities) <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) --></li>
 </ul>
 </div>
+<div class="fragment fade-out" data-fragment-index="1">
 <div style="display: grid; grid-template-columns: 120px 40px 180px 40px 180px 40px 140px; align-items: center; justify-content: center; margin-top: 10px; font-size: 0.6em; row-gap: 2px;">
 <div data-id="ref-box" style="background-color: #9b59b6; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 3; grid-row: 2;">
 reference files
@@ -743,18 +744,9 @@ raw.npy
 →
 </div>
 </div>
+</div>
 <p><!-- - to establish structural uncertainty between different ocean models.  --></p>
-</section>
-<section id="developer-highlights-3" class="slide level2">
-<h2>Developer highlights</h2>
-<h3 class="smaller" id="restarttranslator-2-1">Restart/translator (2)</h3>
-<div style="font-size: 0.65em;">
-<ul>
-<li>Take an emulator state and convert to NEMO compatible <code>restart.nc</code> file</li>
-<li><em>Regrid</em>, <em>upscale</em>, <em>downscale</em> resolution;</li>
-<li>Encode other physical assumptions (geostrophic velocities)</li>
-<li>Translate between other ocean model restart files (in progress..) <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) --></li>
-</ul>
+<div class="fragment fade-in absolute" data-fragment-index="1" style="top: 50%; left: 10%; ">
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 15px; margin-top: 50px;">
 <p><img src="./images/logos/NEMO_logo.png" style="height: 60px; filter: brightness(0) invert(1);" alt="NEMO"></p>
 <p><span style="color: #2ecc71; font-size: 1.5em;"><i class="fa-solid fa-arrow-right-arrow-left" aria-label="arrow-right-arrow-left"></i></span></p>
@@ -763,7 +755,24 @@ raw.npy
 <p><img src="./images/logos/MOM6.png" style="height: 60px;" alt="MOM6"></p>
 </div>
 </div>
-<p><!-- - to establish structural uncertainty between different ocean models.  --></p>
+<div class="fragment" data-fragment-index="1" style="font-size: 0.65em;">
+<p>Translate between other ocean model restart files (in progress..)</p>
+</div>
+<aside class="notes">
+<ul>
+<li>to establish structural uncertainty between different ocean models.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="software-engineering" class="slide level2 smaller">
 <h2>Software engineering</h2>
