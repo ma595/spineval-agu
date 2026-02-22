@@ -236,24 +236,41 @@ Julie Deshayes
 <section id="spinup-evaluation" class="slide level2 smaller">
 <h2>Spinup-evaluation</h2>
 <h3 id="accelerating-spinup">Accelerating Spinup</h3>
+<div class="fragment" data-fragment-index="1">
 <ul>
-<li>Ocean spinup is <code>slow</code>. Thousands of simulation years to achieve equilibrium state.</li>
+<li>Ocean spinup is <code>slow</code>. Upwards of a 1000 years to achieve equilibrium state!</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="1" style="position: absolute; width: 60%;">
+<p><img data-src="./images/sup.png" style="background-color: white; padding: 5px;;width:60.0%"></p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<ul>
 <li>Many machine learning emulators exist for ocean modelling that are well validated:
 <ul>
-<li>How do we know if they are correct? {.nonincremental}</li>
+<li>How do we know if they are correct <em>physically</em>?</li>
 <li>Errors can easily propagate during rollout.</li>
 </ul></li>
-<li>Our focus is on the physical evaluation of ocean models:
+</ul>
+</div>
+<div class="fragment">
 <ul>
-<li>Both <span style="color: red;">equation resolving</span>, pure <span style="color: green">AI emulators</span> and <span style="color: brown">hybrid</span> approaches.</li>
+<li>Our focus is on the physical <code>evaluation</code> of ocean models:
+<ul>
+<li>Including <span style="color: red;">equation resolving</span>, pure <span style="color: green">AI emulators</span> and <span style="color: brown">hybrid</span> approaches.</li>
 </ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li>Implement sustainable software that is easy to extend, robust and reusable.
 <ul>
 <li>Generalised evaluation benchmark for climate.</li>
 </ul></li>
 </ul>
+</div>
 <aside class="notes">
-<p>Temperature and salinity in deep ocean is slow to converge. Is RMSE sufficient? I’ve emphasized hybrid as well here, because it’s likely that ML will not be able to get you completely there. Tools to reshape data from emulators to climate model</p>
+<p>Temperature and salinity in deep ocean is slow to converge. Is RMSE sufficient? tend towards averaged state due to RMSE I’ve emphasized hybrid as well here, because it’s likely that ML will not be able to get you completely there. Tools to reshape data from emulators to climate model</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -515,8 +532,9 @@ Reference
 </div>
 </div>
 </section>
-<section id="physical-evaluation" class="slide level2 smaller">
+<section id="physical-evaluation" class="slide level2 smaller" data-transition="fade">
 <h2>Physical evaluation</h2>
+<h3 id="metrics">Metrics</h3>
 <div class="columns" style="align-items: flex-start;">
 <div class="column" style="width:70%;">
 <p><img data-src="./images/metrics.png" style="background-color: white; padding: 5px;;width:90.0%"></p>
@@ -526,9 +544,9 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 </div><div class="column" style="width:30%;">
 <div style="margin-top: 100px;">
 <ul>
-<li>Relevant for measuring equilibrium progress.
+<li>Metrics relevant for measuring equilibrium progress.
 <ul>
-<li>No ground truth.</li>
+<li><em>No ground truth</em>.</li>
 </ul></li>
 <li>Framework to easily add <strong>new metrics</strong>.</li>
 </ul>
@@ -714,14 +732,12 @@ raw.npy
 <h4 id="modular-generalizable"><strong>Modular &amp; Generalizable</strong></h4>
 <ul>
 <li>Reusable components across domains</li>
-<li>Extensible to new models (e.g., NEMO, <em>Oceananigans</em>)</li>
+<li>Extensible to new models (e.g., NEMO, <em>Oceananigans</em>) <br></li>
 </ul>
-<p><br></p>
 <div class="fragment">
 <h4 id="quality-standards"><strong>Quality &amp; Standards</strong></h4>
 <ul>
-<li>Robust testing (Unit, Integration, Coverage) with CI</li>
-<li>Examples</li>
+<li>Robust testing (Unit, Integration, Coverage) with CI and well documented end-to-end examples (hybrid)</li>
 <li>Data products adhere to <strong>FAIR</strong> <span class="citation" data-cites="fair2016">(see <a href="#/references" role="doc-biblioref" onclick="">Wilkinson et al. 2016</a>)</span></li>
 <li><strong>Collaborative Design</strong>: Bridging Science &amp; RSE</li>
 </ul>
