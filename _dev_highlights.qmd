@@ -1,23 +1,25 @@
-## Developer highlights {auto-animate=true}
-
-### Spinup-benchmark 
+## Evaluation-Benchmark {auto-animate=true}
 
 :::: {.columns style="gap: 5%;"}
 
 ::: {.column style="width:55%;"}
 
 ::: {style="font-size: 0.65em;"}
-- How do we want to evaluate hybrid ocean emulators?
-  - Evaluate at `end` time only. 
-  - Evaluate during `roll-out`.
-  - Feed emulated state back into ocean model to check stability and evaluate over time history.
+- How do we evaluate hybrid ocean emulators?
+  - PILLAR 1: 
+    - Evaluate at `end` time only. 
+    - Evaluate during `roll-out`.
+  - PILLAR 2: 
+    - Feed emulated state back into ocean model to check stability and evaluate over time history.
+  - PILLAR 3: 
+    - Sample from distribution of possible states
+- Pillars 1, 2 and 3 are enabled with the use of two software components:
+:::
+
+:::
+
 <!-- - Other features:
   - Use as part of AI emulation optimisation procedure (e.g. `loss` function).  -->
-- Benchmark consists of two software components:
-:::
-
-:::
-
 ::: {.column style="width:40%; font-size: 65%; padding-left: 30px;"}
 [{{< fa brands github >}}/m2lines/spinup-evaluation](https://github.com/m2lines/nemo-spinup-evaluation)
 

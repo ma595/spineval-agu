@@ -642,24 +642,33 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
       }</style></aside>
 <!-- =============================================================================== -->
 </section>
-<section id="developer-highlights" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Developer highlights</h2>
-<h3 id="spinup-benchmark">Spinup-benchmark</h3>
+<section id="evaluation-benchmark-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Evaluation-Benchmark</h2>
 <div class="columns" style="gap: 5%;">
 <div class="column" style="width:55%;">
 <div style="font-size: 0.65em;">
 <ul>
-<li>How do we want to evaluate hybrid ocean emulators?
+<li>How do we evaluate hybrid ocean emulators?
+<ul>
+<li>PILLAR 1:
 <ul>
 <li>Evaluate at <code>end</code> time only.</li>
 <li>Evaluate during <code>roll-out</code>.</li>
-<li>Feed emulated state back into ocean model to check stability and evaluate over time history. <!-- - Other features:
-- Use as part of AI emulation optimisation procedure (e.g. `loss` function).  --></li>
 </ul></li>
-<li>Benchmark consists of two software components:</li>
+<li>PILLAR 2:
+<ul>
+<li>Feed emulated state back into ocean model to check stability and evaluate over time history.</li>
+</ul></li>
+<li>PILLAR 3:
+<ul>
+<li>Sample from distribution of possible states</li>
+</ul></li>
+</ul></li>
+<li>Pillars 1, 2 and 3 are enabled with the use of two software components:</li>
 </ul>
 </div>
-</div><div class="column" style="width:40%; font-size: 65%; padding-left: 30px;">
+</div><!-- - Other features:
+  - Use as part of AI emulation optimisation procedure (e.g. `loss` function).  --><div class="column" style="width:40%; font-size: 65%; padding-left: 30px;">
 <p><a href="https://github.com/m2lines/nemo-spinup-evaluation"><i class="fa-brands fa-github" aria-label="github"></i>/m2lines/spinup-evaluation</a></p>
 <div id="" class="qrcode"></div>
 <script type="text/javascript">
@@ -690,7 +699,7 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
           display:block!important;
       }</style></aside>
 </section>
-<section id="developer-highlights-1" class="slide level2 smaller" data-auto-animate="true">
+<section id="developer-highlights" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Developer highlights</h2>
 <h3 id="spinup-evaluation-1">Spinup-evaluation (1)</h3>
 <ul>
@@ -774,7 +783,7 @@ raw.npy
           display:block!important;
       }</style></aside>
 </section>
-<section id="developer-highlights-2" class="slide level2" data-auto-animate="true">
+<section id="developer-highlights-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Developer highlights</h2>
 <h3 class="smaller" id="spinup-restarttranslator-2">Spinup-restart/translator (2)</h3>
 <div style="font-size: 0.65em;">
