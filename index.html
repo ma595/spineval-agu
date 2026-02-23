@@ -653,11 +653,8 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 <ul>
 <li>Evaluate at <code>end</code> time only.</li>
 <li>Evaluate during <code>roll-out</code>.</li>
-<li>Feed emulated state back into ocean model to check stability and evaluate over time history.</li>
-</ul></li>
-<li>Other features:
-<ul>
-<li>Use as part of AI emulation optimisation procedure (e.g.&nbsp;<code>loss</code> function).</li>
+<li>Feed emulated state back into ocean model to check stability and evaluate over time history. <!-- - Other features:
+- Use as part of AI emulation optimisation procedure (e.g. `loss` function).  --></li>
 </ul></li>
 <li>Benchmark consists of two software components:</li>
 </ul>
@@ -697,13 +694,10 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 <h2 data-id="quarto-animate-title">Developer highlights</h2>
 <h3 id="spinup-evaluation-1">Spinup-evaluation (1)</h3>
 <ul>
-<li><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Computes metrics on raw emulator outputs (<code>.npy</code>), instantaneous (<code>restart.nc</code>) and time averaged (<code>grid.nc</code>) output files
-<ul>
-<li>compute comparisons if reference provided</li>
-</ul></li>
+<li><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Computes metrics on raw emulator outputs (<code>.npy</code>), instantaneous (<code>restart.nc</code>) and time averaged (<code>grid.nc</code>) output files &amp; <strong>statistical comparisons</strong></li>
 <li><i class="fa-solid fa-diagram-project" aria-label="diagram-project"></i> Strict mapping of ocean variables to <code>restart</code>, <code>grid</code> (output) and <code>mesh_data</code> names</li>
-<li>Framework to easily add <strong>new metrics</strong></li>
-<li>Temporal downsampling - metrics can be computed at different temporal granularities</li>
+<li>Provides a framework to easily add <strong>new metrics</strong></li>
+<li>Implements temporal downsampling – all possible metrics computed even if data output at different cadences.</li>
 </ul>
 <div class="columns" style="gap: 5%;">
 <div class="column" style="width:65%;">
@@ -785,10 +779,10 @@ raw.npy
 <h3 class="smaller" id="spinup-restarttranslator-2">Spinup-restart/translator (2)</h3>
 <div style="font-size: 0.65em;">
 <ul>
-<li>Take an emulator state and convert to NEMO compatible <code>restart.nc</code> file</li>
-<li>Basic validation gate; does grid encoding and sanity checks (existence of <code>NaNs</code> etc)</li>
+<li>Take an <strong>emulator</strong> state and converts to NEMO compatible <code>restart.nc</code> file</li>
+<li>Basic validation gate; does <strong>grid encoding</strong> and <strong>sanity checks</strong> (existence of <code>NaNs</code> etc)</li>
 <li><em>Regrid</em>, <em>upscale</em>, <em>downscale</em> resolution;</li>
-<li>Encode other physical assumptions (geostrophic velocities) <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) --></li>
+<li>Encode other <strong>physical assumptions</strong> (geostrophic velocities) <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) --></li>
 </ul>
 </div>
 <div class="fragment fade-out" data-fragment-index="1">
