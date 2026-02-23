@@ -19,6 +19,11 @@
 - Translation between different ocean checkpoint files 
 :::
 
+::: {.notes}
+- key assumption is that Evaluation should not proceed in isolation of the numerical approach it's emulating.
+- RSEs bring skills that scientists are unable to prioritise. 
+::: 
+
 ## Thanks for Listening {.smaller}
 
 :::: {.columns}

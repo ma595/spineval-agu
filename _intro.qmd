@@ -29,14 +29,15 @@
 ::: {.notes}
 - Temperature and salinity in deep ocean is slow to converge. 
 - Is RMSE sufficient? AI experts tend to use RMSE over some standard fields. Which means that we tend towards an averaged state over long roll out times
-- I've emphasized hybrid as well here, because it's likely that ML will not be be able to get you all the way there
+- I've emphasized hybrid as well here, because it's likely that ML will not be be able to get you all the way there. Hy brid interplay between both techniques.
   - Tools to reshape data from emulators to climate model
 - Generalised benchmark for ocean modelling
   - We focus on NEMO - this has been our first objective - the end goal is to generalise evaluation to lots of ocean models.
+  - 
 :::
 
 
-## The [ICCS](https://iccs.cam.ac.uk/)^[See <https://iccs.cam.ac.uk/> for more details] {.smaller}
+<!-- ## The [ICCS](https://iccs.cam.ac.uk/)^[See <https://iccs.cam.ac.uk/> for more details] {.smaller}
 
 The Institute of Computing for Climate Science
 
@@ -55,7 +56,7 @@ The Institute of Computing for Climate Science
 
 :::{.attribution}
 Figure from [software.ac.uk/](https://www.software.ac.uk/), See [here](https://www.software.ac.uk/publication/better-software-better-research) for more.
-:::
+::: -->
 
 ## NEMO/DINO ocean model
 
