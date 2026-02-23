@@ -27,10 +27,12 @@
 :::
 
 ::: {.notes}
-Temperature and salinity in deep ocean is slow to converge. 
-Is RMSE sufficient? AI experts tend to use RMSE over some standard fields. Which means that we tend towards an averaged state over long roll out times
-I've emphasized hybrid as well here, because it's likely that ML will not be able to get 
- Tools to reshape data from emulators to climate model
+- Temperature and salinity in deep ocean is slow to converge. 
+- Is RMSE sufficient? AI experts tend to use RMSE over some standard fields. Which means that we tend towards an averaged state over long roll out times
+- I've emphasized hybrid as well here, because it's likely that ML will not be be able to get you all the way there
+  - Tools to reshape data from emulators to climate model
+- Generalised benchmark for ocean modelling
+  - We focus on NEMO - this has been our first objective - the end goal is to generalise evaluation to lots of ocean models.
 :::
 
 
@@ -86,4 +88,5 @@ We use the DINO configuration [@kamm2025] for development purposes.
 ::: {.notes}
 - not important to go into detail about the DINO test problem. I believe David is here presenting work on this so please do ask him questions on this - not me. 
 - It is important to note that although this has been our development 
+- maybe skip this slide
 :::

@@ -1,9 +1,4 @@
-
-
-
-
 ## Is RMSE enough? {auto-animate=true}
-
 
 ::: {style="display: flex; flex-direction: column; align-items: center; justify-content: center;"}
 
@@ -154,7 +149,7 @@ Evaluate even when resolution changes.
  AI emulator or traditional time integrator of physical quantities.
 :::
 ::: {.box style="background-color: #2ecc71;"}
-AI Emulator <br> Hybrid
+AI Emulator <br> / Hybrid
 :::
 :::
 
@@ -194,12 +189,21 @@ Translator<br> Toolbox
 :::
 ::: {.label}
 - Create `restart` state from AI emulator<br>
-- `Convert` states between different models. Might be important for structural uncertainty. 
+- `Convert` states between different models. Important for structural uncertainty. 
 :::
 :::
 
 :::
 
+::: {.notes}
+- What does the evaluation-benchmark look like?
+- We start with an equation resolving or AI based model
+- We could probably go straight from the ocean model to physical evaluation.
+- For the hybrid or AI model things are a little trickier.
+  - Massage the outputs into a compatible format - we enforce that for the evaluation to work they must comply with restart format and output format. We currently only support NEMO. But long term we'd like to extend this. 
+- Use this translator toolbox
+- the translator toolbox can also be used to convert between different ocean models
+:::
 
 ## Physical evaluation {transition="fade" .smaller}
 ### Metrics
@@ -215,41 +219,14 @@ Figure from *Learning to generate physical ocean states. @meunier2025*
 
 ::: {.column width="30%"}
 <div style="margin-top: 100px;">
-- Metrics relevant for measuring equilibrium progress.
-  - *No ground truth*.
-- Framework to easily add **new metrics**. 
+Metrics specific to tracking `equilibrium` progress.
+
+  - *No ground truth*
 </div>
 :::
 
 ::::
 
-## Developer highlights {auto-animate=true}
-
-### Spinup-benchmark 
-
-:::: {.columns style="gap: 5%;"}
-
-::: {.column style="width:55%;"}
-
-::: {style="font-size: 0.65em;"}
-- Execution modes:
-  - Evaluate ocean emulators at `end` time only. 
-  - Evaluate ocean emulators during `roll-out` over experiment duration. 
-  - Evaluate numerical model result given emulated state. i.e. 'hybrid' approach. 
-  - Use as part of AI emulation optimisation procedure (e.g. `loss` function). 
+:::{.notes}
+- worth emphasizing that there is no ground truth - at best we can compare only against a pre-existing reference state. 
 :::
-
-:::
-
-::: {.column style="width:40%; font-size: 65%; padding-left: 30px;"}
-[{{< fa brands github >}}/m2lines/spinup-evaluation](https://github.com/m2lines/nemo-spinup-evaluation)
-
-{{< qrcode https://github.com/m2lines/spinup-evaluation width=100 height=100 >}}
-
-version `0.2.1`
-:::
-
-::::
-
-
-

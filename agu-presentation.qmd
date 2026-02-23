@@ -1,7 +1,7 @@
 ---
 output-file: index
 title: "Spinup-Evaluation<br>"
-subtitle: "<br>A Physics-Based Benchmarking Platform for ML-based Spinup of the NEMO Ocean Model<br>"
+subtitle: "<br>A Physics-Based Benchmarking Platform for ML-Based Spinup of the NEMO Ocean Model<br>"
 format:
   revealjs:
     embed-resources: false
