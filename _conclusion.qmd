@@ -22,6 +22,7 @@
 ::: {.notes}
 - key assumption is that Evaluation should not proceed in isolation of the numerical approach it's emulating.
 - RSEs bring skills that scientists are unable to prioritise. 
+- Come and talk to me or message if there's something you'd like us to prioritise or a science case that would be a good fit here. 
 ::: 
 
 ## Thanks for Listening {.smaller}

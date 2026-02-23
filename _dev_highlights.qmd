@@ -71,7 +71,6 @@ version `0.2`
 - Very much in development
 - We want the software to be easily adaptable for new science cases actively working on this.
 - Temporal downsampling - ensure that all metrics can be computed regardless of the temporal frequency of the data. I.e. if we have a metric that's a function of salinity, SSH and temperature, but only ssh is output every month, we'll still compute that metric.
-
 :::
 
 ## Developer highlights {auto-animate=true}
@@ -79,7 +78,7 @@ version `0.2`
 
 ::: {style="font-size: 0.65em;"}
 - Take an emulator state and convert to NEMO compatible `restart.nc` file
-- Basic file verification (existence of nans etc)
+- Basic file verification and sanity checks (existence of NANs etc)
 - *Regrid*, *upscale*, *downscale* resolution;
 - Encode other physical assumptions (geostrophic velocities)
 <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) -->
@@ -130,6 +129,7 @@ version `0.2`
 
 ::: {.notes}
   - to establish structural uncertainty between different ocean models. 
+  - Often the case that we do our machine learning at a lower resolution because the compute demands are so high - and then upscale
 :::
 
 
