@@ -501,6 +501,39 @@ Reference
   .label { font-size: 0.6em; color: #ccc; max-width: 350px; }
 </style>
 </section>
+<section id="physical-evaluation" class="slide level2 smaller" data-transition="fade">
+<h2>Physical evaluation</h2>
+<h3 id="metrics">Metrics</h3>
+<div class="columns" style="align-items: flex-start;">
+<div class="column" style="width:70%;">
+<p><img data-src="./images/metrics.png" style="background-color: white; padding: 5px;;width:90.0%"></p>
+<p style="font-size: 0.5em; text-align: center;">
+Figure from <em>Learning to generate physical ocean states. <span class="citation" data-cites="meunier2025">Meunier et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></em>
+</p>
+</div><div class="column" style="width:30%;">
+<div style="margin-top: 100px;">
+<p>Metrics specific to tracking <code>equilibrium</code> progress.</p>
+<ul>
+<li><em>No ground truth</em></li>
+</ul>
+</div>
+</div></div>
+<aside class="notes">
+<ul>
+<li>worth emphasizing that there is no ground truth - at best we can compare only against a pre-existing reference state.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="evaluation-benchmark" class="slide level2">
 <h2>Evaluation-Benchmark</h2>
 <div class="flow-container">
@@ -603,39 +636,6 @@ Reference
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="physical-evaluation" class="slide level2 smaller" data-transition="fade">
-<h2>Physical evaluation</h2>
-<h3 id="metrics">Metrics</h3>
-<div class="columns" style="align-items: flex-start;">
-<div class="column" style="width:70%;">
-<p><img data-src="./images/metrics.png" style="background-color: white; padding: 5px;;width:90.0%"></p>
-<p style="font-size: 0.5em; text-align: center;">
-Figure from <em>Learning to generate physical ocean states. <span class="citation" data-cites="meunier2025">Meunier et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></em>
-</p>
-</div><div class="column" style="width:30%;">
-<div style="margin-top: 100px;">
-<p>Metrics specific to tracking <code>equilibrium</code> progress.</p>
-<ul>
-<li><em>No ground truth</em></li>
-</ul>
-</div>
-</div></div>
-<aside class="notes">
-<ul>
-<li>worth emphasizing that there is no ground truth - at best we can compare only against a pre-existing reference state.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 <!-- =============================================================================== -->
 </section>
 <section id="developer-highlights" class="slide level2" data-auto-animate="true">
@@ -652,6 +652,8 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 <li>Feed emulated state back into ocean model. i.e.&nbsp;‘hybrid’ approach and then evaluate.</li>
 <li>Use as part of AI emulation optimisation procedure (e.g.&nbsp;<code>loss</code> function).</li>
 </ul></li>
+<li>Benchmark consists of two tools<br>
+</li>
 </ul>
 </div>
 </div><div class="column" style="width:40%; font-size: 65%; padding-left: 30px;">
@@ -772,6 +774,7 @@ mesh.nc
 <div style="font-size: 0.65em;">
 <ul>
 <li>Take an emulator state and convert to NEMO compatible <code>restart.nc</code> file</li>
+<li>Basic file verification (existence of nans etc)</li>
 <li><em>Regrid</em>, <em>upscale</em>, <em>downscale</em> resolution;</li>
 <li>Encode other physical assumptions (geostrophic velocities) <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) --></li>
 </ul>

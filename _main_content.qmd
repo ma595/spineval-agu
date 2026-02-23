@@ -105,6 +105,31 @@ Evaluate even when resolution changes.
   .label { font-size: 0.6em; color: #ccc; max-width: 350px; }
 </style>
 
+## Physical evaluation {transition="fade" .smaller}
+### Metrics
+:::: {.columns style="align-items: flex-start;"}
+
+::: {.column width="70%"}
+![](./images/metrics.png){width="90%" style="background-color: white; padding: 5px;"}
+
+<p style="font-size: 0.5em; text-align: center;">
+Figure from *Learning to generate physical ocean states. @meunier2025*
+</p>
+:::
+
+::: {.column width="30%"}
+<div style="margin-top: 100px;">
+Metrics specific to tracking `equilibrium` progress.
+
+  - *No ground truth*
+</div>
+:::
+
+::::
+
+:::{.notes}
+- worth emphasizing that there is no ground truth - at best we can compare only against a pre-existing reference state. 
+:::
 ## Evaluation-Benchmark
 
 ::: {.flow-container}
@@ -205,30 +230,4 @@ Translator<br> Toolbox
   - Massage the outputs into a compatible format - we enforce that for the evaluation to work they must comply with restart format and output format. We currently only support NEMO. But long term we'd like to extend this. 
 - Use this translator toolbox
 - This may seem weird but we have designed these two components in the context of hybrid modelling. This is our 'glue' that enables us to restart models easily with AI emulated states. 
-:::
-
-## Physical evaluation {transition="fade" .smaller}
-### Metrics
-:::: {.columns style="align-items: flex-start;"}
-
-::: {.column width="70%"}
-![](./images/metrics.png){width="90%" style="background-color: white; padding: 5px;"}
-
-<p style="font-size: 0.5em; text-align: center;">
-Figure from *Learning to generate physical ocean states. @meunier2025*
-</p>
-:::
-
-::: {.column width="30%"}
-<div style="margin-top: 100px;">
-Metrics specific to tracking `equilibrium` progress.
-
-  - *No ground truth*
-</div>
-:::
-
-::::
-
-:::{.notes}
-- worth emphasizing that there is no ground truth - at best we can compare only against a pre-existing reference state. 
 :::
