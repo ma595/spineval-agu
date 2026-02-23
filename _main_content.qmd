@@ -215,7 +215,7 @@ Translator<br> Toolbox
 ::: {.label}
 - Create `restart` state from AI emulator<br>
 - Simple checks 
-- Glue to future time-stepping
+- 'Glue' module for future time-stepping
 <!-- - `Convert` states between different models. Important for structural  -->
 :::
 :::
