@@ -273,13 +273,14 @@ Julie Deshayes
 <ul>
 <li>Temperature and salinity in deep ocean is slow to converge.</li>
 <li>Is RMSE sufficient? AI experts tend to use RMSE over some standard fields. Which means that we tend towards an averaged state over long roll out times</li>
-<li>I’ve emphasized hybrid as well here, because it’s likely that ML will not be be able to get you all the way there
+<li>I’ve emphasized hybrid as well here, because it’s likely that ML will not be be able to get you all the way there. Hy brid interplay between both techniques.
 <ul>
 <li>Tools to reshape data from emulators to climate model</li>
 </ul></li>
 <li>Generalised benchmark for ocean modelling
 <ul>
 <li>We focus on NEMO - this has been our first objective - the end goal is to generalise evaluation to lots of ocean models.</li>
+<li></li>
 </ul></li>
 </ul>
 <style type="text/css">
@@ -293,35 +294,26 @@ Julie Deshayes
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="the-iccs" class="slide level2 smaller">
-<h2>The <a href="https://iccs.cam.ac.uk/">ICCS</a><sup>1</sup></h2>
-<p>The Institute of Computing for Climate Science</p>
-<ul>
-<li>Domain-specific RSE group based at the University of Cambridge</li>
-<li>Embedded support to several international climate science projects <img data-src="./images/iccs/ICCS_streams.png" class="quarto-figure quarto-figure-center"></li>
-</ul>
-<aside class="notes">
+<!-- ## The [ICCS](https://iccs.cam.ac.uk/)^[See <https://iccs.cam.ac.uk/> for more details] {.smaller}
 
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>See <a href="https://iccs.cam.ac.uk/" class="uri">https://iccs.cam.ac.uk/</a> for more details</p></li></ol></aside></section>
-<section>
-<section id="section" class="title-slide slide level1 center">
-<h1></h1>
+The Institute of Computing for Climate Science
 
-<img data-src="./images/iccs/BetterSoftwareBetterResearch.png" class="quarto-figure quarto-figure-center r-stretch"><div class="attribution">
-<p>Figure from <a href="https://www.software.ac.uk/">software.ac.uk/</a>, See <a href="https://www.software.ac.uk/publication/better-software-better-research">here</a> for more.</p>
-</div>
+* Domain-specific RSE group based at the University of Cambridge
+* Embedded support to several international climate science projects 
+![]( ./images/iccs/ICCS_streams.png){fig-align="center"}
+
+::: {.notes}
+:::
+
+
+
+#
+
+![]( ./images/iccs/BetterSoftwareBetterResearch.png){fig-align="center"}
+
+:::{.attribution}
+Figure from [software.ac.uk/](https://www.software.ac.uk/), See [here](https://www.software.ac.uk/publication/better-software-better-research) for more.
+::: -->
 </section>
 <section id="nemodino-ocean-model" class="slide level2">
 <h2>NEMO/DINO ocean model</h2>
@@ -533,9 +525,14 @@ Reference
 <p><a href="https://github.com/m2lines/nemo-spinup-forecast"><i class="fa-brands fa-github" aria-label="github"></i>/m2lines/nemo-spinup-forecast</a></p>
 </div>
 <!-- Curved arrow along left side -->
-<svg class="fragment" data-fragment-index="3" style="position: absolute; left: -10%; top: 10%; width: 150px; height: 80%; z-index: 0;" viewbox="0 0 150 500">
-<path d="M 120 0 Q 20 225, 120 450" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead-left)" opacity="0.7"></path> <defs> <marker id="arrowhead-left" markerwidth="10" markerheight="7" refx="10" refy="3.5" orient="auto"> <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"></polygon> </marker> </defs>
-</svg>
+<!-- <svg class="fragment" data-fragment-index="3" style="position: absolute; left: -10%; top: 10%; width: 150px; height: 80%; z-index: 0;" viewBox="0 0 150 500">
+  <path d="M 120 0 Q 20 225, 120 450" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead-left)" opacity="0.7"/>
+  <defs>
+    <marker id="arrowhead-left" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
+    </marker>
+  </defs>
+</svg> -->
 <svg class="fragment" data-fragment-index="2" style="position: absolute; right: 20%; top: 10%; width: 150px; height: 80%; z-index: 0;" viewbox="0 0 150 500">
 <path d="M 30 0 Q 130 250, 30 500" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead-right)" opacity="0.7"></path> <defs> <marker id="arrowhead-right" markerwidth="10" markerheight="7" refx="10" refy="3.5" orient="auto"> <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"></polygon> </marker> </defs>
 </svg>
@@ -577,7 +574,8 @@ Reference
 <div class="label">
 <ul>
 <li>Create <code>restart</code> state from AI emulator<br></li>
-<li><code>Convert</code> states between different models. Important for structural uncertainty.</li>
+<li>Simple checks</li>
+<li>Glue to future time-stepping <!-- - `Convert` states between different models. Important for structural  --></li>
 </ul>
 </div>
 </div>
@@ -592,7 +590,7 @@ Reference
 <li>Massage the outputs into a compatible format - we enforce that for the evaluation to work they must comply with restart format and output format. We currently only support NEMO. But long term we’d like to extend this.</li>
 </ul></li>
 <li>Use this translator toolbox</li>
-<li>the translator toolbox can also be used to convert between different ocean models</li>
+<li>This may seem weird but we have designed these two components in the context of hybrid modelling. This is our ‘glue’ that enables us to restart models easily with AI emulated states.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -913,8 +911,7 @@ raw.npy
 </div></div>
 <aside class="notes">
 <ul>
-<li>Eliminate siloed workflows through cross-disciplinary partnership.</li>
-<li>Explain how RSEs act as the bridge mentioned in the last bullet.</li>
+<li>We often see ‘Scientific Expertise’ on one side and ‘Software Engineering’ on the other, but without a formal bridge, the results are often fragile scripts that break when a postdoc leaves. By embedding RSEs into the design process, we aren’t just writing code; we are building Sustainable Tools</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -956,6 +953,22 @@ raw.npy
 <li>Translation between different ocean checkpoint files</li>
 </ul>
 </div>
+<aside class="notes">
+<ul>
+<li>key assumption is that Evaluation should not proceed in isolation of the numerical approach it’s emulating.</li>
+<li>RSEs bring skills that scientists are unable to prioritise.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="thanks-for-listening" class="slide level2 smaller">
 <h2>Thanks for Listening</h2>
@@ -1015,8 +1028,7 @@ Meunier, Etienne, David Kamm, Guillaume Gachon, Redouane Lguensat, and Julie Des
 Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. <span>“The <span>FAIR</span> <span>Guiding</span> <span>Principles</span> for Scientific Data Management and Stewardship.”</span> <em>Scientific Data</em> 3 (1): 160018. <a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>.
 </div>
 </div>
-</section></section>
-
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="https://iccs.cam.ac.uk/files/iccs_ucam_combined_reverse_colour.png" class="slide-logo"></p>

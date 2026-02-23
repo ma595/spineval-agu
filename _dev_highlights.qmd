@@ -186,6 +186,6 @@ graph TD
 :::
 
 ::: {.notes}
-- Eliminate siloed workflows through cross-disciplinary partnership.
-- Explain how RSEs act as the bridge mentioned in the last bullet.
+
+- We often see 'Scientific Expertise' on one side and 'Software Engineering' on the other, but without a formal bridge, the results are often fragile scripts that break when a postdoc leaves. By embedding RSEs into the design process, we aren't just writing code; we are building Sustainable Tools
 :::

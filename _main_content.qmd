@@ -122,14 +122,14 @@ Evaluate even when resolution changes.
 :::
 
 <!-- Curved arrow along left side -->
-<svg class="fragment" data-fragment-index="3" style="position: absolute; left: -10%; top: 10%; width: 150px; height: 80%; z-index: 0;" viewBox="0 0 150 500">
+<!-- <svg class="fragment" data-fragment-index="3" style="position: absolute; left: -10%; top: 10%; width: 150px; height: 80%; z-index: 0;" viewBox="0 0 150 500">
   <path d="M 120 0 Q 20 225, 120 450" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead-left)" opacity="0.7"/>
   <defs>
     <marker id="arrowhead-left" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
     </marker>
   </defs>
-</svg>
+</svg> -->
 
 <svg class="fragment" data-fragment-index="2" style="position: absolute; right: 20%; top: 10%; width: 150px; height: 80%; z-index: 0;" viewBox="0 0 150 500">
   <path d="M 30 0 Q 130 250, 30 500" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead-right)" opacity="0.7"/>
@@ -189,7 +189,9 @@ Translator<br> Toolbox
 :::
 ::: {.label}
 - Create `restart` state from AI emulator<br>
-- `Convert` states between different models. Important for structural uncertainty. 
+- Simple checks 
+- Glue to future time-stepping
+<!-- - `Convert` states between different models. Important for structural  -->
 :::
 :::
 
@@ -199,10 +201,10 @@ Translator<br> Toolbox
 - What does the evaluation-benchmark look like?
 - We start with an equation resolving or AI based model
 - We could probably go straight from the ocean model to physical evaluation.
-- For the hybrid or AI model things are a little trickier.
+- For the hybrid or AI model things are a little trickier. 
   - Massage the outputs into a compatible format - we enforce that for the evaluation to work they must comply with restart format and output format. We currently only support NEMO. But long term we'd like to extend this. 
 - Use this translator toolbox
-- the translator toolbox can also be used to convert between different ocean models
+- This may seem weird but we have designed these two components in the context of hybrid modelling. This is our 'glue' that enables us to restart models easily with AI emulated states. 
 :::
 
 ## Physical evaluation {transition="fade" .smaller}
