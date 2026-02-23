@@ -608,7 +608,7 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 <ul>
 <li>Create <code>restart</code> state from AI emulator<br></li>
 <li>Simple checks</li>
-<li>Glue to future time-stepping <!-- - `Convert` states between different models. Important for structural  --></li>
+<li>‘Glue’ module for future time-stepping <!-- - `Convert` states between different models. Important for structural  --></li>
 </ul>
 </div>
 </div>
@@ -649,15 +649,17 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 <div class="column" style="width:55%;">
 <div style="font-size: 0.65em;">
 <ul>
-<li>How do we expect this tool to be used?
+<li>How do we want to evaluate hybrid ocean emulators?
 <ul>
-<li>Evaluate ocean emulators at <code>end</code> time only.</li>
-<li>Evaluate ocean emulators during <code>roll-out</code>.</li>
-<li>Feed emulated state back into ocean model. i.e.&nbsp;‘hybrid’ approach and then evaluate.</li>
+<li>Evaluate at <code>end</code> time only.</li>
+<li>Evaluate during <code>roll-out</code>.</li>
+<li>Feed emulated state back into ocean model to check stability and evaluate over time history.</li>
+</ul></li>
+<li>Other features:
+<ul>
 <li>Use as part of AI emulation optimisation procedure (e.g.&nbsp;<code>loss</code> function).</li>
 </ul></li>
-<li>Benchmark consists of two tools<br>
-</li>
+<li>Benchmark consists of two software components:</li>
 </ul>
 </div>
 </div><div class="column" style="width:40%; font-size: 65%; padding-left: 30px;">
@@ -695,7 +697,7 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 <h2 data-id="quarto-animate-title">Developer highlights</h2>
 <h3 id="spinup-evaluation-1">Spinup-evaluation (1)</h3>
 <ul>
-<li><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Computes metrics on <code>raw</code> emulator outputs, instantaneous (<code>restart</code>) and time averaged (<code>grid</code>) output files
+<li><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Computes metrics on raw emulator outputs (<code>.npy</code>), instantaneous (<code>restart.nc</code>) and time averaged (<code>grid.nc</code>) output files
 <ul>
 <li>compute comparisons if reference provided</li>
 </ul></li>
@@ -712,37 +714,37 @@ reference files
 <div data-id="ref-arrow" style="color: #fff; font-size: 2em; text-align: center; grid-column: 3; grid-row: 2; margin-bottom: -20px;">
 ↓
 </div>
-<div data-id="restart-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 3;">
+<div data-id="restart-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 2;">
 restart.nc
 </div>
-<div data-id="restart-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 3;transform: rotate(45deg);">
+<div data-id="restart-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 2;transform: rotate(45deg);">
 →
 </div>
 <div data-id="eval-box" style="background-color: #3498db; padding: 12px 20px; border-radius: 5px; text-align: center; font-weight: bold; grid-column: 3; grid-row: 3 / 6 ; align-self: center; margin-top: -35px;">
 Spinup<br>Evaluation
 </div>
-<div data-id="eval-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 4; grid-row: 3 / 6 ; align-self: center;">
+<div data-id="eval-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 4; grid-row: 3 / 6 ; align-self: center;margin-top: -35px;">
 →
 </div>
-<div data-id="metrics-box" style="background-color: #b7beba; padding: 12px 15px; border-radius: 5px; text-align: center; grid-column: 5; grid-row: 3 / 6; align-self: center;">
+<div data-id="metrics-box" style="background-color: #b7beba; padding: 12px 15px; border-radius: 5px; text-align: center; grid-column: 5; grid-row: 3 / 6; align-self: center; margin-top: -35px;">
 metrics.csv
 </div>
-<div data-id="output-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 4;">
+<div data-id="output-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 3;">
 output.nc
 </div>
-<div data-id="output-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 4;">
+<div data-id="output-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 3;">
 →
 </div>
-<div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">
+<div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 4;">
 mmask.nc
 </div>
-<div data-id="mesh-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 5;">
+<div data-id="mesh-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 4;">
 →
 </div>
-<div data-id="raw-box" style="background-color: #f1c40f; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 6;">
+<div data-id="raw-box" style="background-color: #f1c40f; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">
 raw.npy
 </div>
-<div data-id="raw-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 6; transform: rotate(-45deg);">
+<div data-id="raw-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 5; transform: rotate(-45deg);">
 →
 </div>
 </div>
@@ -780,11 +782,11 @@ raw.npy
 </section>
 <section id="developer-highlights-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Developer highlights</h2>
-<h3 class="smaller" id="restarttranslator-2">Restart/translator (2)</h3>
+<h3 class="smaller" id="spinup-restarttranslator-2">Spinup-restart/translator (2)</h3>
 <div style="font-size: 0.65em;">
 <ul>
 <li>Take an emulator state and convert to NEMO compatible <code>restart.nc</code> file</li>
-<li>Basic a validation gate; does grid encoding and sanity checks (existence of <code>NaNs</code> etc)</li>
+<li>Basic validation gate; does grid encoding and sanity checks (existence of <code>NaNs</code> etc)</li>
 <li><em>Regrid</em>, <em>upscale</em>, <em>downscale</em> resolution;</li>
 <li>Encode other physical assumptions (geostrophic velocities) <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) --></li>
 </ul>
@@ -933,6 +935,7 @@ raw.npy
 </div></div>
 <aside class="notes">
 <ul>
+<li>I’ve mentioned spinup but the long term plan to to extend this to other domains.</li>
 <li>hopefully bug free. Working with netcdf files and xarray it’s surprising how easy it is for errors to creep in.</li>
 <li>We often see ‘Scientific Expertise’ on one side and ‘Software Engineering’ on the other, but without a formal bridge, the results are often fragile scripts that break when a postdoc leaves. By embedding RSEs into the design process, we aren’t just writing code; we are building Sustainable Tools</li>
 </ul>

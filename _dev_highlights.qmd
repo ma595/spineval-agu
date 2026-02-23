@@ -7,12 +7,13 @@
 ::: {.column style="width:55%;"}
 
 ::: {style="font-size: 0.65em;"}
-- How do we expect this tool to be used?
-  - Evaluate ocean emulators at `end` time only. 
-  - Evaluate ocean emulators during `roll-out`.
-  - Feed emulated state back into ocean model. i.e. 'hybrid' approach and then evaluate.
+- How do we want to evaluate hybrid ocean emulators?
+  - Evaluate at `end` time only. 
+  - Evaluate during `roll-out`.
+  - Feed emulated state back into ocean model to check stability and evaluate over time history.
+- Other features:
   - Use as part of AI emulation optimisation procedure (e.g. `loss` function). 
-- Benchmark consists of two tools  
+- Benchmark consists of two software components:
 :::
 
 :::
@@ -36,7 +37,7 @@ version `0.2`
 ## Developer highlights {auto-animate=true .smaller}
 
 ### Spinup-evaluation (1)
-- {{< fa chart-line >}} Computes metrics on `raw` emulator outputs, instantaneous (`restart`) and time averaged (`grid`) output files 
+- {{< fa chart-line >}} Computes metrics on raw emulator outputs (`.npy`), instantaneous (`restart.nc`) and time averaged (`grid.nc`) output files 
   - compute comparisons if reference provided
 - {{< fa diagram-project >}} Strict mapping of ocean variables to `restart`, `grid` (output) and `mesh_data` names
 - Framework to easily add **new metrics** 
@@ -47,17 +48,17 @@ version `0.2`
 <div style="display: grid; grid-template-columns: 120px 40px 180px 40px 140px; align-items: center; justify-content: center; margin-top: 25px; font-size: 0.6em; row-gap: 5px;">
   <div data-id="ref-box" style="background-color: #9b59b6; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 3; grid-row: 1;">reference files</div>
   <div data-id="ref-arrow" style="color: #fff; font-size: 2em; text-align: center; grid-column: 3; grid-row: 2; margin-bottom: -20px;">↓</div>
-  <div data-id="restart-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 3;">restart.nc</div>
-  <div data-id="restart-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 3;transform: rotate(45deg);">→</div>
+  <div data-id="restart-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 2;">restart.nc</div>
+  <div data-id="restart-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 2;transform: rotate(45deg);">→</div>
   <div data-id="eval-box" style="background-color: #3498db; padding: 12px 20px; border-radius: 5px; text-align: center; font-weight: bold; grid-column: 3; grid-row: 3 / 6 ; align-self: center; margin-top: -35px;">Spinup<br/>Evaluation</div>
-  <div data-id="eval-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 4; grid-row: 3 / 6 ; align-self: center;">→</div>
-  <div data-id="metrics-box" style="background-color: #b7beba; padding: 12px 15px; border-radius: 5px; text-align: center; grid-column: 5; grid-row: 3 / 6; align-self: center;">metrics.csv</div>
-  <div data-id="output-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 4;">output.nc</div>
-  <div data-id="output-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 4;">→</div>
-  <div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">mmask.nc</div>
-  <div data-id="mesh-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 5;">→</div>
-  <div data-id="raw-box" style="background-color: #f1c40f; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 6;">raw.npy</div>
-  <div data-id="raw-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 6; transform: rotate(-45deg);">→</div>
+  <div data-id="eval-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 4; grid-row: 3 / 6 ; align-self: center;margin-top: -35px;">→</div>
+  <div data-id="metrics-box" style="background-color: #b7beba; padding: 12px 15px; border-radius: 5px; text-align: center; grid-column: 5; grid-row: 3 / 6; align-self: center; margin-top: -35px;">metrics.csv</div>
+  <div data-id="output-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 3;">output.nc</div>
+  <div data-id="output-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 3;">→</div>
+  <div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 4;">mmask.nc</div>
+  <div data-id="mesh-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 4;">→</div>
+  <div data-id="raw-box" style="background-color: #f1c40f; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">raw.npy</div>
+  <div data-id="raw-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 5; transform: rotate(-45deg);">→</div>
 </div>
 :::
 ::: {.column style="width:25%; font-size: 0.5em; padding-left: 20px;"}
@@ -76,11 +77,11 @@ version `0.2`
 :::
 
 ## Developer highlights {auto-animate=true}
-### Restart/translator (2) {.smaller}
+### Spinup-restart/translator (2) {.smaller}
 
 ::: {style="font-size: 0.65em;"}
 - Take an emulator state and convert to NEMO compatible `restart.nc` file
-- Basic  a validation gate; does grid encoding and sanity checks (existence of `NaNs` etc)
+- Basic validation gate; does grid encoding and sanity checks (existence of `NaNs` etc)
 - *Regrid*, *upscale*, *downscale* resolution;
 - Encode other physical assumptions (geostrophic velocities)
 <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) -->
@@ -202,6 +203,7 @@ graph TD
 :::
 
 ::: {.notes}
+- I've mentioned spinup but the long term plan to to extend this to other domains.
 - hopefully bug free. Working with netcdf files and xarray it's surprising how easy it is for errors to creep in.
 - We often see 'Scientific Expertise' on one side and 'Software Engineering' on the other, but without a formal bridge, the results are often fragile scripts that break when a postdoc leaves. By embedding RSEs into the design process, we aren't just writing code; we are building Sustainable Tools
 :::
