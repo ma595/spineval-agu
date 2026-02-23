@@ -617,13 +617,17 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 <ul>
 <li>What does the evaluation-benchmark look like?</li>
 <li>We start with an equation resolving or AI based model</li>
-<li>We could probably go straight from the ocean model to physical evaluation.</li>
-<li>For the hybrid or AI model things are a little trickier.
+<li>We can go straight from the ocean model to physical evaluation.</li>
+<li>For the hybrid or AI model things we have a few options.
 <ul>
-<li>Massage the outputs into a compatible format - we enforce that for the evaluation to work they must comply with restart format and output format. We currently only support NEMO. But long term we’d like to extend this.</li>
+<li>could go directly to physical evaluation but usually better to go through a restart / translator toolbox</li>
+<li>this massage the outputs into a compatible format and does some simple checks.
+<ul>
+<li>We currently only support NEMO. But long term we’d like to extend this.</li>
 </ul></li>
-<li>Use this translator toolbox</li>
-<li>This may seem weird but we have designed these two components in the context of hybrid modelling. This is our ‘glue’ that enables us to restart models easily with AI emulated states. Which gives us an extra form of evaluation</li>
+<li>this ensures we’re assessing like for like between the ocean model and the ai emulator</li>
+</ul></li>
+<li>this is also the glue that prepares us for evaluating the state by plugging it back into the numerical model</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -691,7 +695,7 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 <h2 data-id="quarto-animate-title">Developer highlights</h2>
 <h3 id="spinup-evaluation-1">Spinup-evaluation (1)</h3>
 <ul>
-<li><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Computes metrics on instantaneous (<code>restart</code>) and time averaged (<code>grid</code>) output files
+<li><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Computes metrics on <code>raw</code> emulator outputs, instantaneous (<code>restart</code>) and time averaged (<code>grid</code>) output files
 <ul>
 <li>compute comparisons if reference provided</li>
 </ul></li>
@@ -730,9 +734,15 @@ output.nc
 →
 </div>
 <div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">
-mesh.nc
+mmask.nc
 </div>
 <div data-id="mesh-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 5;">
+→
+</div>
+<div data-id="raw-box" style="background-color: #f1c40f; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 6;">
+raw.npy
+</div>
+<div data-id="raw-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 6; transform: rotate(-45deg);">
 →
 </div>
 </div>
@@ -774,7 +784,7 @@ mesh.nc
 <div style="font-size: 0.65em;">
 <ul>
 <li>Take an emulator state and convert to NEMO compatible <code>restart.nc</code> file</li>
-<li>Basic file verification and sanity checks (existence of <code>NaNs</code> etc)</li>
+<li>Basic a validation gate; does grid encoding and sanity checks (existence of <code>NaNs</code> etc)</li>
 <li><em>Regrid</em>, <em>upscale</em>, <em>downscale</em> resolution;</li>
 <li>Encode other physical assumptions (geostrophic velocities) <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) --></li>
 </ul>
@@ -815,7 +825,7 @@ output.nc
 →
 </div>
 <div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">
-mesh.nc
+mmask.nc
 </div>
 <div data-id="mesh-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 5;">
 →

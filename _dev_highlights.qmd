@@ -36,7 +36,7 @@ version `0.2`
 ## Developer highlights {auto-animate=true .smaller}
 
 ### Spinup-evaluation (1)
-- {{< fa chart-line >}} Computes metrics on instantaneous (`restart`) and time averaged (`grid`) output files 
+- {{< fa chart-line >}} Computes metrics on `raw` emulator outputs, instantaneous (`restart`) and time averaged (`grid`) output files 
   - compute comparisons if reference provided
 - {{< fa diagram-project >}} Strict mapping of ocean variables to `restart`, `grid` (output) and `mesh_data` names
 - Framework to easily add **new metrics** 
@@ -54,8 +54,10 @@ version `0.2`
   <div data-id="metrics-box" style="background-color: #b7beba; padding: 12px 15px; border-radius: 5px; text-align: center; grid-column: 5; grid-row: 3 / 6; align-self: center;">metrics.csv</div>
   <div data-id="output-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 4;">output.nc</div>
   <div data-id="output-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 4;">→</div>
-  <div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">mesh.nc</div>
+  <div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">mmask.nc</div>
   <div data-id="mesh-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 5;">→</div>
+  <div data-id="raw-box" style="background-color: #f1c40f; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 6;">raw.npy</div>
+  <div data-id="raw-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 6; transform: rotate(-45deg);">→</div>
 </div>
 :::
 ::: {.column style="width:25%; font-size: 0.5em; padding-left: 20px;"}
@@ -78,7 +80,7 @@ version `0.2`
 
 ::: {style="font-size: 0.65em;"}
 - Take an emulator state and convert to NEMO compatible `restart.nc` file
-- Basic file verification and sanity checks (existence of `NaNs` etc)
+- Basic  a validation gate; does grid encoding and sanity checks (existence of `NaNs` etc)
 - *Regrid*, *upscale*, *downscale* resolution;
 - Encode other physical assumptions (geostrophic velocities)
 <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) -->
@@ -97,7 +99,7 @@ version `0.2`
   <div data-id="metrics-box" style="background-color: #b7beba; padding: 12px 15px; border-radius: 5px; text-align: center; grid-column: 7; grid-row: 3 / 7; align-self: center;">metrics.csv</div>
   <div data-id="output-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 4;">output.nc</div>
   <div data-id="output-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 4;">→</div>
-  <div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">mesh.nc</div>
+  <div data-id="mesh-box" style="background-color: #2ecc71; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 5;">mmask.nc</div>
   <div data-id="mesh-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 5;">→</div>
   <div data-id="raw-box" style="background-color: #f1c40f; padding: 8px 12px; border-radius: 5px; text-align: center; grid-column: 1; grid-row: 6;">raw.npy</div>
   <div data-id="raw-arrow" style="color: #ffff; font-size: 2em; text-align: center; grid-column: 2; grid-row: 6; transform: rotate(-45deg);">→</div>
