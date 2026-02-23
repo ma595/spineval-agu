@@ -774,7 +774,7 @@ mesh.nc
 <div style="font-size: 0.65em;">
 <ul>
 <li>Take an emulator state and convert to NEMO compatible <code>restart.nc</code> file</li>
-<li>Basic file verification and sanity checks (existence of NANs etc)</li>
+<li>Basic file verification and sanity checks (existence of <code>NaNs</code> etc)</li>
 <li><em>Regrid</em>, <em>upscale</em>, <em>downscale</em> resolution;</li>
 <li>Encode other physical assumptions (geostrophic velocities) <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) --></li>
 </ul>
@@ -843,6 +843,7 @@ raw.npy
 </div>
 <aside class="notes">
 <ul>
+<li>this is the module or ‘glue’ to enable physical timestepping</li>
 <li>to establish structural uncertainty between different ocean models.</li>
 <li>Often the case that we do our machine learning at a lower resolution because the compute demands are so high - and then upscale</li>
 </ul>
@@ -872,10 +873,17 @@ raw.npy
 <div class="fragment">
 <h4 id="quality-standards"><strong>Quality &amp; Standards</strong></h4>
 <ul>
-<li>Robust testing (Unit, Integration, Coverage) with CI and well documented end-to-end examples (hybrid)</li>
+<li>Robust testing (Unit, Integration, Coverage) with CI</li>
+<li>Well documented end-to-end examples (hybrid)</li>
 <li>Data products adhere to <strong>FAIR</strong> <span class="citation" data-cites="fair2016">(see <a href="#/references" role="doc-biblioref" onclick="">Wilkinson et al. 2016</a>)</span></li>
 <li><strong>Collaborative Design</strong>: Bridging Science &amp; RSE</li>
 </ul>
+<div class="absolute" style="top: 37%; left: 45%; background-color: None; padding: 10px; border-radius: 8px; display: flex; align-items: center; justify-content: center; width :100px; height: 80px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+<p><img data-src="./images/logos/netcdf.avif" height="80"></p>
+</div>
+<div class="absolute" style="top: 37%; left: 55%; background-color: None; padding: 10px; border-radius: 8px; display: flex; align-items: center; justify-content: center; width :100px; height: 80px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+<p><img data-src="./images/logos/xarray.webp" height="80"></p>
+</div>
 <div class="absolute" style="top: 50%; left: 50%; background-color: None; padding: 10px; border-radius: 8px; display: flex; align-items: center; justify-content: center; width :100px; height: 80px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
 <p><img data-src="./images/logos/pytest.svg" height="140"></p>
 </div>
@@ -915,6 +923,7 @@ raw.npy
 </div></div>
 <aside class="notes">
 <ul>
+<li>hopefully bug free. Working with netcdf files and xarray it’s surprising how easy it is for errors to creep in.</li>
 <li>We often see ‘Scientific Expertise’ on one side and ‘Software Engineering’ on the other, but without a formal bridge, the results are often fragile scripts that break when a postdoc leaves. By embedding RSEs into the design process, we aren’t just writing code; we are building Sustainable Tools</li>
 </ul>
 <style type="text/css">
