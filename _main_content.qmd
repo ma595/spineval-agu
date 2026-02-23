@@ -225,9 +225,11 @@ Translator<br> Toolbox
 ::: {.notes}
 - What does the evaluation-benchmark look like?
 - We start with an equation resolving or AI based model
-- We could probably go straight from the ocean model to physical evaluation.
-- For the hybrid or AI model things are a little trickier. 
-  - Massage the outputs into a compatible format - we enforce that for the evaluation to work they must comply with restart format and output format. We currently only support NEMO. But long term we'd like to extend this. 
-- Use this translator toolbox
-- This may seem weird but we have designed these two components in the context of hybrid modelling. This is our 'glue' that enables us to restart models easily with AI emulated states.  Which gives us an extra form of evaluation
+- We can go straight from the ocean model to physical evaluation.
+- For the hybrid or AI model things we have a few options. 
+  - could go directly to physical evaluation but usually better to go through a restart / translator toolbox 
+  - this massage the outputs into a compatible format and does some simple checks.
+    - We currently only support NEMO. But long term we'd like to extend this. 
+  - this ensures we're assessing like for like between the ocean model and the ai emulator
+- this is also the glue that prepares us for evaluating the state by plugging it back into the numerical model
 :::
