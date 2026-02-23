@@ -123,8 +123,8 @@ version `0.2`
 </div>
 :::
 
-::: {.fragment fragment-index=1 style="font-size: 0.65em;"}
- Translate between other ocean model restart files (in progress..)
+::: {.fragment fragment-index=1 style="font-size: 0.65em; position: absolute; bottom: 150px;"}
+ Translate between other ocean model restart files - potentially difficult due to grids (in progress..)
 :::
 
 ::: {.notes}
@@ -144,7 +144,7 @@ version `0.2`
 ::: {.fragment}
 #### **Modular & Generalizable**
 - Reusable components across domains
-- Extensible to new models (e.g., NEMO, *Oceananigans*)
+- Extensible to new models (e.g., MOM6, *Oceananigans*)
 :::
 
 ::: {.fragment}
