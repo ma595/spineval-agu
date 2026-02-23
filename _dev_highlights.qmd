@@ -1,9 +1,45 @@
+## Developer highlights {auto-animate=true}
+
+### Spinup-benchmark 
+
+:::: {.columns style="gap: 5%;"}
+
+::: {.column style="width:55%;"}
+
+::: {style="font-size: 0.65em;"}
+- How do we expect this tool to be used?
+  - Evaluate ocean emulators at `end` time only. 
+  - Evaluate ocean emulators during `roll-out`.
+  - Feed emulated state back into ocean model. i.e. 'hybrid' approach and then evaluate.
+  - Use as part of AI emulation optimisation procedure (e.g. `loss` function). 
+:::
+
+:::
+
+::: {.column style="width:40%; font-size: 65%; padding-left: 30px;"}
+[{{< fa brands github >}}/m2lines/spinup-evaluation](https://github.com/m2lines/nemo-spinup-evaluation)
+
+{{< qrcode https://github.com/m2lines/spinup-evaluation width=100 height=100 >}}
+
+version `0.2`
+:::
+
+::::
+
+:::{.notes}
+- mention the correction of the model 
+- We have produced a piece of software that evaluates spin-up 
+:::
+
+
 ## Developer highlights {auto-animate=true .smaller}
 
 ### Spinup-evaluation (1)
-- {{< fa chart-line >}} Computes metrics on instantaneous (`restart`) and time history (`grid`) output files 
+- {{< fa chart-line >}} Computes metrics on instantaneous (`restart`) and time averaged (`grid`) output files 
   - compute comparisons if reference provided
-- {{< fa diagram-project >}} Strict mapping of ocean variables to restart and output variable names
+- {{< fa diagram-project >}} Strict mapping of ocean variables to `restart`, `grid` (output) and `mesh_data` names
+- Framework to easily add **new metrics** 
+- Temporal downsampling - metrics can be computed at different temporal granularities
 
 :::: {.columns style="gap: 5%;"}
 ::: {.column style="width:65%;"}
@@ -26,9 +62,16 @@
 
 {{< qrcode https://github.com/m2lines/spinup-evaluation width=100 height=100 >}}
 
-version `0.2.1`
+version `0.2`
 :::
 ::::
+
+::: {.notes}
+- Very much in development
+- We want the software to be easily adaptable for new science cases actively working on this.
+- Temporal downsampling - ensure that all metrics can be computed regardless of the temporal frequency of the data. I.e. if we have a metric that's a function of salinity, SSH and temperature, but only ssh is output every month, we'll still compute that metric.
+
+:::
 
 ## Developer highlights {auto-animate=true}
 ### Restart/translator (2) {.smaller}

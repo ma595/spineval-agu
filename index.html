@@ -201,7 +201,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Spinup-Evaluation<br></h1>
-  <p class="subtitle"><br>A Physics-Based Benchmarking Platform for ML-based Spinup of the NEMO Ocean Model<br></p>
+  <p class="subtitle"><br>A Physics-Based Benchmarking Platform for ML-Based Spinup of the NEMO Ocean Model<br></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -270,7 +270,18 @@ Julie Deshayes
 </ul>
 </div>
 <aside class="notes">
-<p>Temperature and salinity in deep ocean is slow to converge. Is RMSE sufficient? AI experts tend to use RMSE over some standard fields. Which means that we tend towards an averaged state over long roll out times I’ve emphasized hybrid as well here, because it’s likely that ML will not be able to get Tools to reshape data from emulators to climate model</p>
+<ul>
+<li>Temperature and salinity in deep ocean is slow to converge.</li>
+<li>Is RMSE sufficient? AI experts tend to use RMSE over some standard fields. Which means that we tend towards an averaged state over long roll out times</li>
+<li>I’ve emphasized hybrid as well here, because it’s likely that ML will not be be able to get you all the way there
+<ul>
+<li>Tools to reshape data from emulators to climate model</li>
+</ul></li>
+<li>Generalised benchmark for ocean modelling
+<ul>
+<li>We focus on NEMO - this has been our first objective - the end goal is to generalise evaluation to lots of ocean models.</li>
+</ul></li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -339,6 +350,7 @@ Julie Deshayes
 <ul>
 <li>not important to go into detail about the DINO test problem. I believe David is here presenting work on this so please do ask him questions on this - not me.</li>
 <li>It is important to note that although this has been our development</li>
+<li>maybe skip this slide</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -532,7 +544,7 @@ Reference
 <p>AI emulator or traditional time integrator of physical quantities.</p>
 </div>
 <div class="box" style="background-color: #2ecc71;">
-<p>AI Emulator <br> Hybrid</p>
+<p>AI Emulator <br> / Hybrid</p>
 </div>
 </div>
 <div class="box-row fragment" data-fragment-index="0" style="top: 0; left: -5%;">
@@ -565,11 +577,34 @@ Reference
 <div class="label">
 <ul>
 <li>Create <code>restart</code> state from AI emulator<br></li>
-<li><code>Convert</code> states between different models. Might be important for structural uncertainty.</li>
+<li><code>Convert</code> states between different models. Important for structural uncertainty.</li>
 </ul>
 </div>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>What does the evaluation-benchmark look like?</li>
+<li>We start with an equation resolving or AI based model</li>
+<li>We could probably go straight from the ocean model to physical evaluation.</li>
+<li>For the hybrid or AI model things are a little trickier.
+<ul>
+<li>Massage the outputs into a compatible format - we enforce that for the evaluation to work they must comply with restart format and output format. We currently only support NEMO. But long term we’d like to extend this.</li>
+</ul></li>
+<li>Use this translator toolbox</li>
+<li>the translator toolbox can also be used to convert between different ocean models</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="physical-evaluation" class="slide level2 smaller" data-transition="fade">
 <h2>Physical evaluation</h2>
@@ -582,15 +617,28 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 </p>
 </div><div class="column" style="width:30%;">
 <div style="margin-top: 100px;">
+<p>Metrics specific to tracking <code>equilibrium</code> progress.</p>
 <ul>
-<li>Metrics relevant for measuring equilibrium progress.
-<ul>
-<li><em>No ground truth</em>.</li>
-</ul></li>
-<li>Framework to easily add <strong>new metrics</strong>.</li>
+<li><em>No ground truth</em></li>
 </ul>
 </div>
 </div></div>
+<aside class="notes">
+<ul>
+<li>worth emphasizing that there is no ground truth - at best we can compare only against a pre-existing reference state.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!-- =============================================================================== -->
 </section>
 <section id="developer-highlights" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Developer highlights</h2>
@@ -599,11 +647,11 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 <div class="column" style="width:55%;">
 <div style="font-size: 0.65em;">
 <ul>
-<li>Execution modes:
+<li>How do we expect this tool to be used?
 <ul>
 <li>Evaluate ocean emulators at <code>end</code> time only.</li>
-<li>Evaluate ocean emulators during <code>roll-out</code> over experiment duration.</li>
-<li>Evaluate numerical model result given emulated state. i.e.&nbsp;‘hybrid’ approach.</li>
+<li>Evaluate ocean emulators during <code>roll-out</code>.</li>
+<li>Feed emulated state back into ocean model. i.e.&nbsp;‘hybrid’ approach and then evaluate.</li>
 <li>Use as part of AI emulation optimisation procedure (e.g.&nbsp;<code>loss</code> function).</li>
 </ul></li>
 </ul>
@@ -620,19 +668,36 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 })();
 </script>
     
-<p>version <code>0.2.1</code></p>
+<p>version <code>0.2</code></p>
 </div></div>
-<!-- =============================================================================== -->
+<aside class="notes">
+<ul>
+<li>mention the correction of the model</li>
+<li>We have produced a piece of software that evaluates spin-up</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="developer-highlights-1" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Developer highlights</h2>
 <h3 id="spinup-evaluation-1">Spinup-evaluation (1)</h3>
 <ul>
-<li><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Computes metrics on instantaneous (<code>restart</code>) and time history (<code>grid</code>) output files
+<li><i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Computes metrics on instantaneous (<code>restart</code>) and time averaged (<code>grid</code>) output files
 <ul>
 <li>compute comparisons if reference provided</li>
 </ul></li>
-<li><i class="fa-solid fa-diagram-project" aria-label="diagram-project"></i> Strict mapping of ocean variables to restart and output variable names</li>
+<li><i class="fa-solid fa-diagram-project" aria-label="diagram-project"></i> Strict mapping of ocean variables to <code>restart</code>, <code>grid</code> (output) and <code>mesh_data</code> names</li>
+<li>Framework to easily add <strong>new metrics</strong></li>
+<li>Temporal downsampling - metrics can be computed at different temporal granularities</li>
 </ul>
 <div class="columns" style="gap: 5%;">
 <div class="column" style="width:65%;">
@@ -683,8 +748,25 @@ mesh.nc
 })();
 </script>
     
-<p>version <code>0.2.1</code></p>
+<p>version <code>0.2</code></p>
 </div></div>
+<aside class="notes">
+<ul>
+<li>Very much in development</li>
+<li>We want the software to be easily adaptable for new science cases actively working on this.</li>
+<li>Temporal downsampling - ensure that all metrics can be computed regardless of the temporal frequency of the data. I.e. if we have a metric that’s a function of salinity, SSH and temperature, but only ssh is output every month, we’ll still compute that metric.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="developer-highlights-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Developer highlights</h2>
