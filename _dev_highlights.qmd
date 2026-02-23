@@ -6,16 +6,31 @@
 
 ::: {style="font-size: 0.65em;"}
 - How do we evaluate hybrid ocean emulators?
-  - PILLAR 1: 
-    - Evaluate at `end` time only. 
-    - Evaluate during `roll-out`.
-  - PILLAR 2: 
-    - Feed emulated state back into ocean model to check stability and evaluate over time history.
-  - PILLAR 3: 
-    - Sample from distribution of possible states
-- Pillars 1, 2 and 3 are enabled with the use of two software components:
+
+::: {.fragment}
+  - [PILLAR 1]{style="color: red;"}: 
+    - Compute metrics at `end` time only. 
+    - Compute during `roll-out`
 :::
 
+::: {.fragment}
+  - [PILLAR 2]{style="color: green;"}: 
+    - Feed emulated state back into ocean model to check `stability` and 
+      - evaluate metrics over time history
+:::
+
+::: {.fragment}
+  - [PILLAR 3]{style="color: brown;"}: 
+    - Sample from a `distribution` of possible emulated states
+
+<br>
+:::
+
+:::
+
+::: {.absolute style="font-size: 0.6em; bottom: 3%; left: 20%; transform: translateX(-40%);"}
+Pillars 1, 2 and 3 enabled with the use of two software components:
+:::
 :::
 
 <!-- - Other features:

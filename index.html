@@ -512,7 +512,8 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 </p>
 </div><div class="column" style="width:30%;">
 <div style="margin-top: 100px;">
-<p>Metrics specific to tracking <code>equilibrium</code> progress.</p>
+<p>Bring in physical knowledge of problem</p>
+<p>i.e.&nbsp;metrics specific to tracking <code>equilibrium</code> progress.</p>
 <ul>
 <li><em>No ground truth</em></li>
 </ul>
@@ -648,24 +649,40 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 <div class="column" style="width:55%;">
 <div style="font-size: 0.65em;">
 <ul>
-<li>How do we evaluate hybrid ocean emulators?
-<ul>
-<li>PILLAR 1:
-<ul>
-<li>Evaluate at <code>end</code> time only.</li>
-<li>Evaluate during <code>roll-out</code>.</li>
-</ul></li>
-<li>PILLAR 2:
-<ul>
-<li>Feed emulated state back into ocean model to check stability and evaluate over time history.</li>
-</ul></li>
-<li>PILLAR 3:
-<ul>
-<li>Sample from distribution of possible states</li>
-</ul></li>
-</ul></li>
-<li>Pillars 1, 2 and 3 are enabled with the use of two software components:</li>
+<li>How do we evaluate hybrid ocean emulators?</li>
 </ul>
+<div class="fragment">
+<ul>
+<li><span style="color: red;">PILLAR 1</span>:
+<ul>
+<li>Compute metrics at <code>end</code> time only.</li>
+<li>Compute during <code>roll-out</code></li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span style="color: green;">PILLAR 2</span>:
+<ul>
+<li>Feed emulated state back into ocean model to check <code>stability</code> and
+<ul>
+<li>evaluate metrics over time history</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span style="color: brown;">PILLAR 3</span>:
+<ul>
+<li>Sample from a <code>distribution</code> of possible emulated states</li>
+</ul></li>
+</ul>
+<p><br></p>
+</div>
+</div>
+<div class="absolute" style="font-size: 0.6em; bottom: 3%; left: 20%; transform: translateX(-40%);">
+<p>Pillars 1, 2 and 3 enabled with the use of two software components:</p>
 </div>
 </div><!-- - Other features:
   - Use as part of AI emulation optimisation procedure (e.g. `loss` function).  --><div class="column" style="width:40%; font-size: 65%; padding-left: 30px;">
