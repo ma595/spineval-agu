@@ -623,7 +623,7 @@ Figure from <em>Learning to generate physical ocean states. <span class="citatio
 <li>Massage the outputs into a compatible format - we enforce that for the evaluation to work they must comply with restart format and output format. We currently only support NEMO. But long term we’d like to extend this.</li>
 </ul></li>
 <li>Use this translator toolbox</li>
-<li>This may seem weird but we have designed these two components in the context of hybrid modelling. This is our ‘glue’ that enables us to restart models easily with AI emulated states.</li>
+<li>This may seem weird but we have designed these two components in the context of hybrid modelling. This is our ‘glue’ that enables us to restart models easily with AI emulated states. Which gives us an extra form of evaluation</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -774,7 +774,7 @@ mesh.nc
 <div style="font-size: 0.65em;">
 <ul>
 <li>Take an emulator state and convert to NEMO compatible <code>restart.nc</code> file</li>
-<li>Basic file verification (existence of nans etc)</li>
+<li>Basic file verification and sanity checks (existence of NANs etc)</li>
 <li><em>Regrid</em>, <em>upscale</em>, <em>downscale</em> resolution;</li>
 <li>Encode other physical assumptions (geostrophic velocities) <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) --></li>
 </ul>
@@ -844,6 +844,7 @@ raw.npy
 <aside class="notes">
 <ul>
 <li>to establish structural uncertainty between different ocean models.</li>
+<li>Often the case that we do our machine learning at a lower resolution because the compute demands are so high - and then upscale</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -960,6 +961,7 @@ raw.npy
 <ul>
 <li>key assumption is that Evaluation should not proceed in isolation of the numerical approach it’s emulating.</li>
 <li>RSEs bring skills that scientists are unable to prioritise.</li>
+<li>Come and talk to me or message if there’s something you’d like us to prioritise or a science case that would be a good fit here.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
