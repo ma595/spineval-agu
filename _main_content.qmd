@@ -119,7 +119,10 @@ Figure from *Learning to generate physical ocean states. @meunier2025*
 
 ::: {.column width="30%"}
 <div style="margin-top: 100px;">
-Metrics specific to tracking `equilibrium` progress.
+
+Bring in physical knowledge of problem
+
+i.e. metrics specific to tracking `equilibrium` progress.
 
   - *No ground truth*
 </div>
