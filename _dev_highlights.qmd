@@ -78,7 +78,7 @@ version `0.2`
 
 ::: {style="font-size: 0.65em;"}
 - Take an emulator state and convert to NEMO compatible `restart.nc` file
-- Basic file verification and sanity checks (existence of NANs etc)
+- Basic file verification and sanity checks (existence of `NaNs` etc)
 - *Regrid*, *upscale*, *downscale* resolution;
 - Encode other physical assumptions (geostrophic velocities)
 <!-- - $$NEMO \rightleftharpoons Oceananigans \rightleftharpoons OM4$$  (in progress...) -->
@@ -128,6 +128,7 @@ version `0.2`
 :::
 
 ::: {.notes}
+  - this is the module or 'glue' to enable physical timestepping 
   - to establish structural uncertainty between different ocean models. 
   - Often the case that we do our machine learning at a lower resolution because the compute demands are so high - and then upscale
 :::
@@ -149,9 +150,20 @@ version `0.2`
 
 ::: {.fragment}
 #### **Quality & Standards**
-- Robust testing (Unit, Integration, Coverage) with CI and well documented end-to-end examples (hybrid)
+- Robust testing (Unit, Integration, Coverage) with CI 
+- Well documented end-to-end examples (hybrid)
 - Data products adhere to **FAIR** [see @fair2016]
 - **Collaborative Design**: Bridging Science & RSE
+
+::: {.absolute style="top: 37%; left: 45%; background-color: None; padding: 10px; border-radius: 8px; display: flex; align-items: center; justify-content: center; width :100px; height: 80px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"}
+![](./images/logos/netcdf.avif){height="80px"}
+:::
+
+::: {.absolute style="top: 37%; left: 55%; background-color: None; padding: 10px; border-radius: 8px; display: flex; align-items: center; justify-content: center; width :100px; height: 80px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"}
+![](./images/logos/xarray.webp){height="80px"}
+
+:::
+
 
 ::: {.absolute style="top: 50%; left: 50%; background-color: None; padding: 10px; border-radius: 8px; display: flex; align-items: center; justify-content: center; width :100px; height: 80px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"}
 ![](./images/logos/pytest.svg){height="140px"}
@@ -188,6 +200,6 @@ graph TD
 :::
 
 ::: {.notes}
-
+- hopefully bug free. Working with netcdf files and xarray it's surprising how easy it is for errors to creep in.
 - We often see 'Scientific Expertise' on one side and 'Software Engineering' on the other, but without a formal bridge, the results are often fragile scripts that break when a postdoc leaves. By embedding RSEs into the design process, we aren't just writing code; we are building Sustainable Tools
 :::
