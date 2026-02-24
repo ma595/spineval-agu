@@ -47,7 +47,7 @@ Get in touch:
 
 ::: {.column style="width: 40%; font-size: 85%;"}
 
-[{{< fa brands github >}}/ma595/spineval-agu - Slides](https://ma595.github.io/spineval-agu)
+[ma595.github.io/spineval-agu - Slides](https://ma595.github.io/spineval-agu)
 
 {{< qrcode https://ma595.github.io/spineval-agu width=150 height=150 >}}
 :::
