@@ -5,17 +5,17 @@
 <div style="display: flex; align-items: flex-start; justify-content: center; gap: 10px;">
 
 <div style="text-align: center;">
-![](./images/gen1_surface.png){width="100%" style="background-color: white; padding: 2px;"}
+![](./images/figures2/gen1_surface.png){width="100%" style="background-color: white; padding: 2px;"}
 <p style="font-size: 0.7em; margin-top: 5px;">Unconstrained</p>
 </div>
 
 <div style="text-align: center;">
-![](./images/gen4_surface.png){width="100%" style="background-color: white; padding: 2px;"}
+![](./images/figures2/gen4_surface.png){width="100%" style="background-color: white; padding: 2px;"}
 <p style="font-size: 0.7em; margin-top: 5px;"><span style="color: #2ecc71;">{{< fa square-check >}}</span> Constrained</p>
 </div>
 
 <div style="text-align: center;">
-![](./images/reference_surface.png){width="100%" style="background-color: white; padding: 2px;"}
+![](./images/figures2/reference_surface.png){width="100%" style="background-color: white; padding: 2px;"}
 <p style="font-size: 0.7em; margin-top: 5px;">Reference</p>
 </div>
 
@@ -45,6 +45,8 @@ Evaluate even when resolution changes.
 
 ::: {.notes}
 - These are results from a diffusion model to sample from a equilibrated distribution. The justification is that there may not be just one valid spinup state. 
+- Horizontal surface plots
+- Depth slices.
 - I'm not going to describe the work -  you can find it by following the link. 
 - Suffice it to say that in this case better diffusion outputs may lead to higher RMSE. This is because
 - critically only one leads to a successful restart of NEMO even though the RMSE is relatively close in each case.
@@ -60,17 +62,17 @@ Evaluate even when resolution changes.
 <div style="display: flex; align-items: flex-start; justify-content: center; gap: 10px;">
 
 <div style="text-align: center;">
-![](./images/gen1_vertical.png){width="50%" style="background-color: white; padding: 2px;"}
+![](./images/figures2/gen1_vertical.png){width="80%" style="background-color: white; padding: 2px;"}
 <p style="font-size: 0.7em; margin-top: 5px;">Unconstrained</p>
 </div>
 
 <div style="text-align: center;">
-![](./images/gen4_vertical.png){width="50%" style="background-color: white; padding: 2px;"}
+![](./images/figures2/gen4_vertical.png){width="80%" style="background-color: white; padding: 2px;"}
 <p style="font-size: 0.7em; margin-top: 5px;"><span style="color: #2ecc71;">{{< fa square-check >}}</span> Constrained</p>
 </div>
 
 <div style="text-align: center;">
-![](./images/reference_vertical.png){width="50%" style="background-color: white; padding: 2px;"}
+![](./images/figures2/reference_vertical.png){width="80%" style="background-color: white; padding: 2px;"}
 <p style="font-size: 0.7em; margin-top: 5px;">Reference</p>
 </div>
 
