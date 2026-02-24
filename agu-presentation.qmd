@@ -25,6 +25,8 @@ author:
   - name: Isaac Akanho
   - name: Surbhi Goel
   - name: Simon Sadler
+  - name: "Etienne Meunier"
+  - name: Guillaume Gachon
   - name: "Julie Deshayes"
 date: "2026-02-24"
 bibliography: references.bib
@@ -42,7 +44,7 @@ include-in-header:
         margin-bottom: 20px
       }
       #title-slide .authors {
-        font-size: 1.0em;
+        font-size: 0.5em        line-height: 1.2;
         color: #fffff;
       }
       .quarto-title-author:nth-child(1) .quarto-title-author-name::after,
@@ -53,7 +55,9 @@ include-in-header:
         font-size: 0.7em;
         vertical-align: super;
       }
-      .quarto-title-author:nth-child(5) .quarto-title-author-name::after {
+      .quarto-title-author:nth-child(5) .quarto-title-author-name::after,
+      .quarto-title-author:nth-child(6) .quarto-title-author-name::after,
+      .quarto-title-author:nth-child(7) .quarto-title-author-name::after {
         content: "²";
         font-size: 0.7em;
         vertical-align: super;
